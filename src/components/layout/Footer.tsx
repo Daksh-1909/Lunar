@@ -117,7 +117,7 @@ export const Footer: React.FC = () => {
                 <Link to="/contact" className="text-silver/70 hover:text-white transition-colors">Report a Bug</Link>
               </li>
               <li>
-                <a href="https://daksh-patel.dakshp860.workers.dev/" target="_blank" rel="noreferrer" className="text-silver/70 hover:text-white transition-colors">Author Portfolio</a>
+                <a href="https://dakshpatel.pages.dev/" target="_blank" rel="noreferrer" className="text-silver/70 hover:text-white transition-colors">Author Portfolio</a>
               </li>
             </ul>
           </div>
@@ -142,7 +142,7 @@ export const Footer: React.FC = () => {
             <img src="/moon-icon.png" alt="Moon Icon" className="w-6 h-6 object-contain" />
             <span className="uppercase tracking-wider text-[10px] text-silver/50 font-normal">MADE WITH LOVE BY</span>
             <a
-              href="https://daksh-patel.dakshp860.workers.dev/"
+              href="https://dakshpatel.pages.dev/"
               target="_blank"
               rel="noreferrer"
               className="text-white hover:text-eclipse transition-colors font-bold uppercase tracking-wider text-[11px]"
