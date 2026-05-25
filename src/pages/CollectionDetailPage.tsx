@@ -24,7 +24,7 @@ export const CollectionDetailPage: React.FC = () => {
 
   if (!collection) {
     return (
-      <div className="w-full bg-void min-h-screen py-32 text-center flex flex-col items-center justify-center">
+      <div className="w-full bg-transparent min-h-screen py-32 text-center flex flex-col items-center justify-center">
         <h2 className="text-3xl font-display font-medium text-white">
           Collection Not Found
         </h2>
@@ -53,7 +53,7 @@ export const CollectionDetailPage: React.FC = () => {
     .slice(0, 3);
 
   return (
-    <div className="w-full bg-void min-h-screen pb-24 overflow-hidden relative">
+    <div className="w-full bg-transparent min-h-screen pb-24 overflow-hidden relative">
       {/* 1. COMPONENT HERO BANNER */}
       <section className="relative w-full py-20 md:py-32 px-6 md:px-12 flex items-center justify-center text-center overflow-hidden border-b border-stardust/40">
         <img
@@ -153,7 +153,7 @@ export const CollectionDetailPage: React.FC = () => {
             <Link
               key={col.id}
               to={`/collections/${col.slug}`}
-              className="group flex flex-col bg-cosmos border border-stardust/40 rounded-[20px] overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:ring-1 hover:ring-eclipse/20 cursor-pointer active:scale-[0.98]"
+              className="group flex flex-col bg-cosmos/40 backdrop-blur-sm border border-stardust/40 rounded-[20px] overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:ring-1 hover:ring-eclipse/20 cursor-pointer active:scale-[0.98]"
             >
               <div className="w-full aspect-[16/10] overflow-hidden relative">
                 <img

@@ -4,7 +4,7 @@ import { ArrowLeft, Moon } from "lucide-react";
 
 export const NotFoundPage: React.FC = () => {
   return (
-    <div className="w-full bg-void min-h-[80vh] flex flex-col items-center justify-center text-center px-6 select-none animate-in fade-in">
+    <div className="w-full bg-transparent min-h-[80vh] flex flex-col items-center justify-center text-center px-6 select-none animate-in fade-in">
       <div className="relative w-28 h-28 flex items-center justify-center mb-6">
         <Moon className="w-20 h-20 text-eclipse rotate-12 absolute animate-pulse opacity-40" />
         <span className="font-mono text-5xl font-semibold text-white z-10">404</span>
