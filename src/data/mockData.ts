@@ -8,7 +8,7 @@ export const photographers: Photographer[] = [
     bio: "Astrophotographer and celestial tracker specializing in long-exposure lunar phases and solar eclipses. Over a decade capturing the silence of the night sky.",
     location: "Vadodara, Gujarat",
     instagram: "@daksh_patel199",
-    website: "dakshpatel.pages.dev"
+    website: "daksh-patel.dakshp860.workers.dev"
   },
   {
     id: "p2",
@@ -17,7 +17,7 @@ export const photographers: Photographer[] = [
     bio: "Adventure photographer documenting Earth's most extreme landscapes and atmospheric phenomena, from supercell storms to active volcanoes at dusk.",
     location: "Vadodara, Gujarat",
     instagram: "@daksh_patel199",
-    website: "dakshpatel.pages.dev"
+    website: "daksh-patel.dakshp860.workers.dev"
   },
   {
     id: "p3",
@@ -26,7 +26,7 @@ export const photographers: Photographer[] = [
     bio: "Fine art nature photographer whose work explores the intricate relationships between light, shadow, and organic structures in ancient forests.",
     location: "Vadodara, Gujarat",
     instagram: "@daksh_patel199",
-    website: "dakshpatel.pages.dev"
+    website: "daksh-patel.dakshp860.workers.dev"
   },
   {
     id: "p4",
@@ -35,7 +35,7 @@ export const photographers: Photographer[] = [
     bio: "Deep-sky imager and visual astronomer focusing on nebulas, distant galaxies, and the majestic sweep of the Milky Way over high-altitude peaks.",
     location: "Vadodara, Gujarat",
     instagram: "@daksh_patel199",
-    website: "dakshpatel.pages.dev"
+    website: "daksh-patel.dakshp860.workers.dev"
   }
 ];
 
