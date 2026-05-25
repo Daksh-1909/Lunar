@@ -43,7 +43,8 @@
 
   /* Frosted 56px Floating Nav - Floating Glass Pill */
   .sub-nav-frosted {
-    @apply sticky top-4 h-[56px] max-w-6xl mx-auto w-[92%] bg-cosmos/80 backdrop-blur-lg border border-stardust/30 rounded-full flex items-center justify-between px-8 z-40 transition-all duration-300 shadow-lg shadow-black/20;
+    @apply sticky top-4 h-[56px] max-w-6xl mx-auto w-[92%] bg-cosmos/80 backdrop-blur-lg border border-stardust/30 rounded-full flex items-center justify-between px-8 z-40 shadow-lg shadow-black/20;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Apple Action Blue Pill CTA */

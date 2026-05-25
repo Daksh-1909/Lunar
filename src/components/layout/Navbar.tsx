@@ -7,19 +7,22 @@ import { OrbitButton } from "../ui/OrbitButton";
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
   const { likedPhotoIds, setSearchQuery } = useGallery();
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrollY(window.scrollY);
       if (window.scrollY > 44) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -34,12 +37,29 @@ export const Navbar: React.FC = () => {
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" }
   ];
+  const fadeRange = 150; // pixels of scroll over which it disappears
+  const startFade = 10;  // scroll offset at which it starts fading
+  
+  let opacity = 1;
+  let translateY = 0;
+  
+  if (scrollY > startFade) {
+    const progress = Math.min(1, (scrollY - startFade) / fadeRange);
+    opacity = 1 - progress;
+    translateY = -progress * 48; // slide up to -48px
+  }
+
   return (
     <>
       <header
         className={`sub-nav-frosted ${
           scrolled ? "border-stardust/60 shadow-xl bg-cosmos/95" : "border-stardust/30"
         }`}
+        style={{
+          opacity,
+          transform: `translateY(${translateY}px)`,
+          pointerEvents: opacity === 0 ? "none" : "auto",
+        }}
       >
         <div className="flex items-center gap-2">
           {/* Logo Crescent Moon */}
