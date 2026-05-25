@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
               <Linkedin className="w-4 h-4" />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/daksh_patel199/"
               target="_blank"
               rel="noreferrer"
               className="w-10 h-10 rounded-[10px] bg-white/5 border border-white/10 flex items-center justify-center text-silver hover:text-white transition-all hover:border-eclipse/50 active:scale-95"
