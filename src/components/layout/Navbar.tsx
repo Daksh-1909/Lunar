@@ -78,7 +78,7 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center gap-2">
           {/* Logo Crescent Moon */}
           <Link to="/" className="flex items-center gap-2 select-none group">
-            <Moon className="w-5 h-5 text-eclipse rotate-45 transition-transform duration-500 group-hover:rotate-90" />
+            <Moon className="w-5 h-5 text-eclipse rotate-[35deg] transition-transform duration-500 group-hover:rotate-[80deg]" />
             <span className="font-display text-2xl font-medium tracking-wide text-white bg-gradient-to-r from-moonbeam to-eclipse bg-clip-text text-transparent">
               Lunar
             </span>
