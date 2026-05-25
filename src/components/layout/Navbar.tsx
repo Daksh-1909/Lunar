@@ -35,7 +35,8 @@ export const Navbar: React.FC = () => {
     { name: "Contact", path: "/contact" }
   ];
   return (
-    <header
+    <>
+      <header
         className={`sub-nav-frosted ${
           scrolled ? "border-stardust/60 shadow-xl bg-cosmos/95" : "border-stardust/30"
         }`}
@@ -136,7 +137,7 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 };
 export default Navbar;
