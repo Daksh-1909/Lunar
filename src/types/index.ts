@@ -20,7 +20,8 @@ export interface Photo {
 }
 
 export type PhotoCategory =
-  | "moon"
+  | "red-moon"
+  | "full-moon"
   | "eclipse"
   | "nature"
   | "night-sky"

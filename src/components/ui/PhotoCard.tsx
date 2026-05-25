@@ -19,7 +19,8 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
 
   // Category specific styles/colors matching the design spec
   const categoryPills: Record<string, string> = {
-    moon: "bg-eclipse/10 text-eclipse border-eclipse/20",
+    "red-moon": "bg-red-500/10 text-red-400 border-red-500/20",
+    "full-moon": "bg-eclipse/10 text-eclipse border-eclipse/20",
     eclipse: "bg-orange-500/10 text-orange-400 border-orange-500/20",
     nature: "bg-twilight/10 text-violet-400 border-twilight/20",
     "night-sky": "bg-blue-500/10 text-blue-400 border-blue-500/20",
