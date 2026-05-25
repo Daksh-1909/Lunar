@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-void text-moonbeam font-ui antialiased selection:bg-primary/30 selection:text-white overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight font-semibold text-white;
+  }
+
+  /* Negative tracking at display sizes - Apple tight */
+  .display-tight {
+    letter-spacing: -0.02em;
+  }
+
+  /* Body copy at 17px, not 16px - Apple standard */
+  .body-apple {
+    font-size: 17px;
+    line-height: 1.47;
+    letter-spacing: -0.022em;
+  }
+
+  /* Monospace for captions, settings */
+  .mono-apple {
+    @apply font-mono text-sm tracking-tight text-silver;
+  }
+}
+
+@layer components {
+  /* Thin 44px Global Nav - Apple Black */
+  .global-nav {
+    @apply h-[44px] bg-black text-silver text-[12px] font-medium tracking-tight border-b border-stardust/40 flex items-center justify-between px-6 z-50 w-full;
+  }
+
+  .global-nav-link {
+    @apply hover:text-white transition-colors duration-200 cursor-pointer;
+  }
+
+  /* Frosted 52px Sub Nav - Apple Parchment-Glass */
+  .sub-nav-frosted {
+    @apply sticky top-0 h-[52px] bg-cosmos/80 backdrop-blur-md border-b border-stardust/40 flex items-center justify-between px-6 z-40 w-full transition-all duration-300;
+  }
+
+  /* Apple Action Blue Pill CTA */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-focus text-white font-ui text-[14px] font-medium rounded-full px-[22px] py-[11px] transition-all duration-200 active:scale-[0.95] inline-flex items-center justify-center gap-2;
+  }
+
+  /* Apple Ghost Action Blue Pill CTA */
+  .btn-secondary {
+    @apply bg-transparent hover:bg-white/5 border border-primary text-primary hover:text-primary-focus font-ui text-[14px] font-medium rounded-full px-[22px] py-[11px] transition-all duration-200 active:scale-[0.95] inline-flex items-center justify-center gap-2;
+  }
+
+  /* Apple Dark Utility Rect Button */
+  .btn-dark-utility {
+    @apply bg-ink hover:bg-ink/80 text-white font-ui text-[14px] font-medium rounded-[8px] px-[15px] py-[8px] transition-all duration-200 active:scale-[0.95] inline-flex items-center justify-center;
+  }
+
+  /* Pearl Card Secondary Button */
+  .btn-pearl {
+    @apply bg-surface-pearl border border-divider-soft text-ink font-ui text-[14px] font-medium rounded-[11px] px-[14px] py-[8px] transition-all duration-200 active:scale-[0.95] inline-flex items-center justify-center;
+  }
+
+  /* Circular Glass Icon Button */
+  .btn-icon-circular {
+    @apply w-[44px] h-[44px] bg-white/10 hover:bg-white/20 border border-white/10 text-white rounded-full flex items-center justify-center transition-all duration-200 active:scale-[0.95];
+  }
+
+  /* Full-bleed photography tiles */
+  .product-tile {
+    @apply w-full py-[80px] px-6 md:px-12 flex flex-col items-center text-center relative overflow-hidden;
+  }
+
+  .product-tile-void {
+    @apply product-tile bg-void text-moonbeam;
+  }
+
+  .product-tile-cosmos {
+    @apply product-tile bg-cosmos text-moonbeam;
+  }
+
+  .product-tile-nebula {
+    @apply product-tile bg-nebula text-moonbeam;
+  }
+
+  /* Custom interactive cursor support */
+  .custom-cursor {
+    @apply w-8 h-8 border border-eclipse/40 rounded-full fixed pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 mix-blend-difference hidden md:block;
+  }
+
+  .custom-cursor-hover {
+    @apply scale-[1.8] bg-eclipse/10 border-eclipse;
+  }
+
+  /* SVG Noise Overlay */
+  .grain-overlay {
+    content: "";
+    @apply absolute inset-0 w-full h-full pointer-events-none opacity-[0.03] z-[3] mix-blend-overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+}
