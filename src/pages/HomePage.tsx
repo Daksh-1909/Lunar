@@ -50,12 +50,22 @@ export const HomePage: React.FC = () => {
 
     section.addEventListener("mousemove", handleMouseMove);
 
+    const scrollPos = { y: window.scrollY };
+    const smoothScroll = { y: window.scrollY };
+
+    const handleScroll = () => {
+      scrollPos.y = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     // High-performance image cover calculation (matches CSS background-size: cover perfectly)
     const drawImageCover = (
       context: CanvasRenderingContext2D,
       img: HTMLImageElement,
       width: number,
-      height: number
+      height: number,
+      rotationAngle: number = 0
     ) => {
       if (!img.complete || img.naturalWidth === 0) return;
 
@@ -78,7 +88,15 @@ export const HomePage: React.FC = () => {
         offsetX = (width - drawWidth) / 2;
       }
 
-      context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+      if (rotationAngle !== 0) {
+        context.save();
+        context.translate(width / 2, height / 2);
+        context.rotate(rotationAngle);
+        context.drawImage(img, -drawWidth / 2, -drawHeight / 2, drawWidth, drawHeight);
+        context.restore();
+      } else {
+        context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+      }
     };
 
     // requestAnimationFrame Loop with smooth LERP and double-buffered canvas composition
@@ -104,6 +122,9 @@ export const HomePage: React.FC = () => {
       smoothMousePos.current.x += (mousePos.current.x - smoothMousePos.current.x) * 0.1;
       smoothMousePos.current.y += (mousePos.current.y - smoothMousePos.current.y) * 0.1;
 
+      smoothScroll.y += (scrollPos.y - smoothScroll.y) * 0.1;
+      const rotationAngle = smoothScroll.y * 0.0008;
+
       // normalized offsets
       const nx = (smoothMousePos.current.x / rect.width) - 0.5;
       const ny = (smoothMousePos.current.y / rect.height) - 0.5;
@@ -128,7 +149,7 @@ export const HomePage: React.FC = () => {
         offscreenCanvas.height = height;
 
         // Draw Earth cover
-        drawImageCover(offscreenCtx, earthImg, width, height);
+        drawImageCover(offscreenCtx, earthImg, width, height, rotationAngle);
 
         // Mask it using radial gradient
         offscreenCtx.globalCompositeOperation = "destination-in";
@@ -158,7 +179,7 @@ export const HomePage: React.FC = () => {
         ctx.clearRect(0, 0, width, height);
 
         // Draw base Moon cover
-        drawImageCover(ctx, moonImg, width, height);
+        drawImageCover(ctx, moonImg, width, height, rotationAngle);
 
         // Overlay masked Earth layer
         ctx.drawImage(offscreenCanvas, 0, 0);
@@ -171,6 +192,7 @@ export const HomePage: React.FC = () => {
 
     return () => {
       section.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
