@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import { Lightbox } from "../components/ui/Lightbox";
-import { SpaceBackground } from "../components/ui/SpaceBackground";
 
 const Layout: React.FC = () => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -37,8 +36,7 @@ const Layout: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-black text-moonbeam relative">
-      <SpaceBackground />
+    <div className="min-h-screen flex flex-col bg-void text-moonbeam relative">
       {/* Premium SVG noise grain overlay */}
       <div className="grain-overlay" />
 
