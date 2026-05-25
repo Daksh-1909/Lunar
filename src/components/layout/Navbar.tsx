@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Search, Heart, User, Compass } from "lucide-react";
+import { Moon, Menu, X, Search, Heart, User, Compass } from "lucide-react";
 import { useGallery } from "../../context/GalleryContext";
 import { OrbitButton } from "../ui/OrbitButton";
 
@@ -40,7 +40,7 @@ export const Navbar: React.FC = () => {
       {/* 1. Global Nav - Apple Thin Black 44px */}
       <nav className="global-nav relative">
         <div className="flex items-center gap-1.5 cursor-pointer">
-          <img src="/moon-icon.png" alt="Moon Icon" className="w-5.5 h-5.5 object-contain" />
+          <Moon className="w-3.5 h-3.5 text-eclipse fill-eclipse animate-pulse" />
           <span className="font-semibold text-white tracking-widest text-[11px] uppercase">
             LUNAR
           </span>
@@ -78,7 +78,7 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center gap-2">
           {/* Logo Crescent Moon */}
           <Link to="/" className="flex items-center gap-2 select-none group">
-            <img src="/moon-icon.png" alt="Moon Icon" className="w-9 h-9 object-contain transition-transform duration-500 group-hover:rotate-12" />
+            <Moon className="w-5 h-5 text-eclipse rotate-45 transition-transform duration-500 group-hover:rotate-90" />
             <span className="font-display text-2xl font-medium tracking-wide text-white bg-gradient-to-r from-moonbeam to-eclipse bg-clip-text text-transparent">
               Lunar
             </span>
