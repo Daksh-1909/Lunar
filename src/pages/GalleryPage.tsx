@@ -4,6 +4,7 @@ import { Grid, Eye, ThumbsUp, Calendar, ArrowDownAz, RefreshCcw } from "lucide-r
 import { useGallery } from "../context/GalleryContext";
 import { PhotoCard } from "../components/ui/PhotoCard";
 import { PhotoCategory } from "../types";
+import { SpaceBackground } from "../components/ui/SpaceBackground";
 
 export const GalleryPage: React.FC = () => {
   const {
@@ -108,6 +109,7 @@ export const GalleryPage: React.FC = () => {
 
   return (
     <div className="w-full bg-transparent min-h-screen pt-4 pb-24 px-6 md:px-12 relative overflow-hidden">
+      <SpaceBackground />
       {/* 1. FILTER BAR - Sticky under frosted subnav */}
       <div className="max-w-7xl mx-auto flex flex-col gap-6 mb-12 select-none">
         

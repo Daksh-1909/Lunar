@@ -120,13 +120,6 @@ export const HomePage: React.FC = () => {
       const width = canvas.width;
       const height = canvas.height;
 
-      // Hide canvas when scrolled past hero to save performance and let layout stars show through
-      if (smoothScroll.y > window.innerHeight * 1.1) {
-        canvas.style.display = "none";
-      } else {
-        canvas.style.display = "block";
-      }
-
       // smooth += (target - smooth) * 0.1
       smoothMousePos.current.x += (mousePos.current.x - smoothMousePos.current.x) * 0.1;
       smoothMousePos.current.y += (mousePos.current.y - smoothMousePos.current.y) * 0.1;
@@ -327,7 +320,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 2. FEATURED CATEGORIES SECTION - Void canvas */}
-      <section className="w-full bg-transparent py-24 px-6 md:px-12 border-t border-stardust/40 z-10 relative">
+      <section className="w-full bg-void py-24 px-6 md:px-12 border-t border-stardust/40 z-10 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
@@ -385,7 +378,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 3. STATS BAR SECTION - Cosmic luxury banner */}
-      <section className="w-full bg-cosmos/60 backdrop-blur-md border-y border-stardust/40 py-16 px-6 md:px-12 z-10 relative">
+      <section className="w-full bg-cosmos border-y border-stardust/40 py-16 px-6 md:px-12 z-10 relative">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
             { value: 2400, suffix: "+", label: "Photos" },
@@ -408,7 +401,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 4. FEATURED PHOTOS FILMSTRIP - Horizontal scroll */}
-      <section className="w-full bg-transparent py-24 px-6 md:px-12 z-10 relative">
+      <section className="w-full bg-void py-24 px-6 md:px-12 z-10 relative">
         <div className="max-w-7xl mx-auto flex items-end justify-between mb-10">
           <div>
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
@@ -473,7 +466,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 5. NEWSLETTER SECTION - Apple store utility card */}
-      <section className="w-full bg-cosmos/60 backdrop-blur-md border-t border-stardust/40 py-24 px-6 md:px-12 z-10 relative">
+      <section className="w-full bg-cosmos border-t border-stardust/40 py-24 px-6 md:px-12 z-10 relative">
         <div className="max-w-4xl mx-auto bg-void border border-stardust/40 rounded-[24px] p-8 md:p-16 text-center flex flex-col items-center relative overflow-hidden select-none">
           {/* subtle eclipse radial halo behind card */}
           <div className="absolute -top-32 -left-32 w-64 h-64 bg-eclipse/10 rounded-full blur-3xl" />

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { useGallery } from "../context/GalleryContext";
+import { SpaceBackground } from "../components/ui/SpaceBackground";
 
 export const CollectionsPage: React.FC = () => {
   const { collections } = useGallery();
@@ -23,6 +24,7 @@ export const CollectionsPage: React.FC = () => {
 
   return (
     <div className="w-full bg-transparent min-h-screen pb-24 overflow-hidden">
+      <SpaceBackground />
       {/* 1. HERO BANNER - Slideshow Carousel */}
       <section className="relative w-full h-[50vh] min-h-[360px] flex items-center justify-center text-center px-6 overflow-hidden select-none">
         

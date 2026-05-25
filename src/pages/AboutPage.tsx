@@ -2,6 +2,7 @@ import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Moon, ArrowUpRight, Compass, ShieldCheck, HelpCircle, Award } from "lucide-react";
 import { photographers } from "../data/mockData";
+import { SpaceBackground } from "../components/ui/SpaceBackground";
 
 export const AboutPage: React.FC = () => {
   const milestones = [
@@ -29,6 +30,7 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="w-full bg-transparent min-h-screen pb-24 overflow-hidden relative">
+      <SpaceBackground />
       {/* 1. HERO BANNER */}
       <section className="relative w-full py-24 md:py-36 px-6 md:px-12 flex flex-col items-center justify-center text-center overflow-hidden border-b border-stardust/40">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-repeat bg-[size:16px_16px]">

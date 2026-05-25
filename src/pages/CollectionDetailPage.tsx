@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, BookOpen, Camera } from "lucide-react";
 import { useGallery } from "../context/GalleryContext";
 import { PhotoCard } from "../components/ui/PhotoCard";
+import { SpaceBackground } from "../components/ui/SpaceBackground";
 
 export const CollectionDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -25,6 +26,7 @@ export const CollectionDetailPage: React.FC = () => {
   if (!collection) {
     return (
       <div className="w-full bg-transparent min-h-screen py-32 text-center flex flex-col items-center justify-center">
+        <SpaceBackground />
         <h2 className="text-3xl font-display font-medium text-white">
           Collection Not Found
         </h2>
@@ -54,6 +56,7 @@ export const CollectionDetailPage: React.FC = () => {
 
   return (
     <div className="w-full bg-transparent min-h-screen pb-24 overflow-hidden relative">
+      <SpaceBackground />
       {/* 1. COMPONENT HERO BANNER */}
       <section className="relative w-full py-20 md:py-32 px-6 md:px-12 flex items-center justify-center text-center overflow-hidden border-b border-stardust/40">
         <img

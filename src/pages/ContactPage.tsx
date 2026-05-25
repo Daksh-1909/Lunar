@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Send, MapPin, Mail, Phone, Heart, Sparkles } from "lucide-react";
+import { SpaceBackground } from "../components/ui/SpaceBackground";
 
 interface ConfettiParticle {
   x: number;
@@ -117,6 +118,7 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="w-full bg-transparent min-h-screen py-20 px-6 md:px-12 relative overflow-hidden flex items-center">
+      <SpaceBackground />
       {/* Canvas for success confetti */}
       <canvas
         ref={canvasRef}
