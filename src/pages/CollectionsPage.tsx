@@ -22,7 +22,7 @@ export const CollectionsPage: React.FC = () => {
   }, [slideshowCovers.length]);
 
   return (
-    <div className="w-full bg-void min-h-screen pb-24 overflow-hidden">
+    <div className="w-full bg-transparent min-h-screen pb-24 overflow-hidden">
       {/* 1. HERO BANNER - Slideshow Carousel */}
       <section className="relative w-full h-[50vh] min-h-[360px] flex items-center justify-center text-center px-6 overflow-hidden select-none">
         
@@ -67,7 +67,7 @@ export const CollectionsPage: React.FC = () => {
             <Link
               key={col.id}
               to={`/collections/${col.slug}`}
-              className="group flex flex-col bg-cosmos border border-stardust/40 rounded-[24px] overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/70 hover:ring-1 hover:ring-eclipse/20 active:scale-[0.98]"
+              className="group flex flex-col bg-cosmos/40 backdrop-blur-sm border border-stardust/40 rounded-[24px] overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/70 hover:ring-1 hover:ring-eclipse/20 active:scale-[0.98]"
             >
               {/* Cover Aspect Ratio 16:9 */}
               <div className="w-full aspect-[16/10] overflow-hidden relative border-b border-stardust/40">
