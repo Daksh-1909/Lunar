@@ -42,10 +42,9 @@ export const HomePage: React.FC = () => {
     smoothMousePos.current = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = section.getBoundingClientRect();
       mousePos.current = {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top
+        x: e.clientX,
+        y: e.clientY
       };
     };
 
@@ -233,7 +232,7 @@ export const HomePage: React.FC = () => {
         {/* Main Interactive Canvas Backdrop */}
         <canvas
           ref={canvasRef}
-          className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+          className="fixed inset-0 w-full h-full object-cover z-0 pointer-events-none"
         />
 
         {/* Grid Background */}
