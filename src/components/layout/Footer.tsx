@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Moon, Instagram, Linkedin, Github, Zap } from "lucide-react";
+import { Moon, Instagram, Linkedin, Github } from "lucide-react";
 
 export const Footer: React.FC = () => {
   const [scrollPercent, setScrollPercent] = useState(0);
@@ -139,7 +139,7 @@ export const Footer: React.FC = () => {
         
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2 text-xs font-semibold">
-            <Zap className="w-3.5 h-3.5 text-[#00e5a0] fill-[#00e5a0]" />
+            <img src="/moon-icon.png" alt="Moon Icon" className="w-3.5 h-3.5 object-contain" />
             <span className="uppercase tracking-wider text-[10px] text-silver/50 font-normal">MADE WITH LOVE BY</span>
             <a
               href="https://dakshpatel.pages.dev/"
