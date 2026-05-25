@@ -35,44 +35,10 @@ export const Navbar: React.FC = () => {
     { name: "Contact", path: "/contact" }
   ];
 
-  return (
-    <>
-      {/* 1. Global Nav - Apple Thin Black 44px */}
-      <nav className="global-nav relative">
-        <div className="flex items-center gap-1.5 cursor-pointer">
-          <Moon className="w-3.5 h-3.5 text-eclipse fill-eclipse animate-pulse" />
-          <span className="font-semibold text-white tracking-widest text-[11px] uppercase">
-            LUNAR
-          </span>
-        </div>
-
-        {/* Global links for desktop */}
-        <div className="hidden md:flex items-center gap-6 font-mono text-[10px] tracking-wider uppercase text-silver">
-          <span className="hover:text-white transition-colors duration-200 cursor-pointer">Science</span>
-          <span className="hover:text-white transition-colors duration-200 cursor-pointer">Observatories</span>
-          <span className="hover:text-white transition-colors duration-200 cursor-pointer">Prints</span>
-          <span className="hover:text-white transition-colors duration-200 cursor-pointer">Licensing</span>
-        </div>
-
-        {/* Global icons right */}
-        <div className="flex items-center gap-4 text-silver">
-          {/* Likes count indicator */}
-          <Link to="/gallery" className="relative flex items-center hover:text-white transition-colors">
-            <Heart className="w-3.5 h-3.5" />
-            {likedPhotoIds.size > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 bg-supernova text-white font-mono text-[8px] rounded-full w-3.5 h-3.5 flex items-center justify-center">
-                {likedPhotoIds.size}
-              </span>
-            )}
-          </Link>
-          <User className="w-3.5 h-3.5 hover:text-white transition-colors cursor-pointer" />
-        </div>
-      </nav>
-
-      {/* 2. Sub Nav Frosted - 52px Sticky */}
+      {/* Floating Glass-Pill Navbar */}
       <header
         className={`sub-nav-frosted ${
-          scrolled ? "bg-cosmos/95 border-b border-stardust/80 shadow-md" : "bg-cosmos/70 border-b border-stardust/40"
+          scrolled ? "border-stardust/60 shadow-xl bg-cosmos/95" : "border-stardust/30"
         }`}
       >
         <div className="flex items-center gap-2">
@@ -104,7 +70,20 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* Action Button - Right */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-6">
+          <div className="flex items-center gap-4 text-silver">
+            {/* Likes count indicator */}
+            <Link to="/gallery" className="relative flex items-center hover:text-white transition-colors">
+              <Heart className="w-[18px] h-[18px]" />
+              {likedPhotoIds.size > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 bg-supernova text-white font-mono text-[8px] rounded-full w-3.5 h-3.5 flex items-center justify-center">
+                  {likedPhotoIds.size}
+                </span>
+              )}
+            </Link>
+            <User className="w-[18px] h-[18px] hover:text-white transition-colors cursor-pointer" />
+          </div>
+
           <OrbitButton
             color="blue"
             onClick={() => navigate("/gallery")}

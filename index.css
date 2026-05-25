@@ -41,9 +41,9 @@
     @apply hover:text-white transition-colors duration-200 cursor-pointer;
   }
 
-  /* Frosted 52px Sub Nav - Apple Parchment-Glass */
+  /* Frosted 56px Floating Nav - Floating Glass Pill */
   .sub-nav-frosted {
-    @apply sticky top-0 h-[52px] bg-cosmos/80 backdrop-blur-md border-b border-stardust/40 flex items-center justify-between px-6 z-40 w-full transition-all duration-300;
+    @apply sticky top-4 h-[56px] max-w-6xl mx-auto w-[92%] bg-cosmos/80 backdrop-blur-lg border border-stardust/30 rounded-full flex items-center justify-between px-8 z-40 transition-all duration-300 shadow-lg shadow-black/20;
   }
 
   /* Apple Action Blue Pill CTA */
