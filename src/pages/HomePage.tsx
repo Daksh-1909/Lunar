@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ChevronDown, ArrowRight, ArrowLeft, Send } from "lucide-react";
+import { ChevronDown, ArrowRight, Send } from "lucide-react";
 import { StarField } from "../components/ui/StarField";
 import { AnimatedCounter } from "../components/ui/AnimatedCounter";
 import { photos, collections } from "../data/mockData";
@@ -10,7 +10,6 @@ import { OrbitButton } from "../components/ui/OrbitButton";
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const { openLightbox } = useGallery();
-  const filmstripRef = useRef<HTMLDivElement | null>(null);
 
   // Spotlight reveal refs
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -234,17 +233,6 @@ export const HomePage: React.FC = () => {
     }
   ];
 
-  const handleScrollLeft = () => {
-    if (filmstripRef.current) {
-      filmstripRef.current.scrollBy({ left: -320, behavior: "smooth" });
-    }
-  };
-
-  const handleScrollRight = () => {
-    if (filmstripRef.current) {
-      filmstripRef.current.scrollBy({ left: 320, behavior: "smooth" });
-    }
-  };
 
   return (
     <div className="flex flex-col w-full relative overflow-x-hidden">
@@ -400,68 +388,54 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. FEATURED PHOTOS FILMSTRIP - Horizontal scroll */}
-      <section className="w-full bg-void py-24 px-6 md:px-12 z-10 relative">
-        <div className="max-w-7xl mx-auto flex items-end justify-between mb-10">
+      {/* 4. FEATURED PHOTOS INFINITE MARQUEE */}
+      <section className="w-full bg-void py-24 z-10 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
           <div>
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-              FILMSTRIP
+              INFINITY FEED
             </span>
             <h2 className="text-3xl md:text-4xl font-display text-white mt-2 font-semibold display-tight">
               Featured Artworks
             </h2>
           </div>
-
-          {/* Navigation buttons */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={handleScrollLeft}
-              className="btn-icon-circular"
-            >
-              <ArrowLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={handleScrollRight}
-              className="btn-icon-circular"
-            >
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
         </div>
 
-        {/* Filmstrip scrollable body */}
-        <div
-          ref={filmstripRef}
-          className="flex gap-6 overflow-x-auto pb-8 scrollbar-none snap-x snap-mandatory"
-          style={{ scrollbarWidth: "none" }}
-        >
-          {photos.slice(0, 8).map((photo) => (
-            <div
-              key={photo.id}
-              onClick={() => openLightbox(photo.id)}
-              className="flex-shrink-0 w-[300px] h-[400px] rounded-[18px] overflow-hidden bg-cosmos border border-stardust/40 relative group snap-start cursor-pointer hover:ring-1 hover:ring-eclipse/30 hover:shadow-lg hover:shadow-eclipse/10 active:scale-[0.98] transition-all duration-300"
-            >
-              <img
-                src={photo.thumbnailSrc}
-                alt={photo.title}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-              
-              {/* Bottom gradient on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5" />
+        {/* Infinite Scroll Marquee Body */}
+        <div className="relative w-full overflow-hidden py-4 select-none">
+          {/* Subtle fade masks at left/right edges for a premium vignette look */}
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-void to-transparent z-20 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-void to-transparent z-20 pointer-events-none" />
 
-              {/* Title & Tag on Hover */}
-              <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[20px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex flex-col">
-                <h4 className="text-lg font-display font-medium text-white line-clamp-1 leading-snug">
-                  {photo.title}
-                </h4>
-                <span className="text-[10px] font-mono text-eclipse mt-1">
-                  {photo.category.replace("-", " ").toUpperCase()}
-                </span>
+          <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused] py-2 px-6">
+            {[...photos.slice(0, 8), ...photos.slice(0, 8)].map((photo, idx) => (
+              <div
+                key={`${photo.id}-${idx}`}
+                onClick={() => openLightbox(photo.id)}
+                className="flex-shrink-0 w-[300px] h-[400px] rounded-[18px] overflow-hidden bg-cosmos border border-stardust/40 relative group cursor-pointer hover:ring-1 hover:ring-eclipse/30 hover:shadow-lg hover:shadow-eclipse/10 active:scale-[0.98] transition-all duration-300"
+              >
+                <img
+                  src={photo.thumbnailSrc}
+                  alt={photo.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                
+                {/* Bottom gradient on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5" />
+
+                {/* Title & Tag on Hover */}
+                <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[20px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex flex-col">
+                  <h4 className="text-lg font-display font-medium text-white line-clamp-1 leading-snug">
+                    {photo.title}
+                  </h4>
+                  <span className="text-[10px] font-mono text-eclipse mt-1">
+                    {photo.category.replace("-", " ").toUpperCase()}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
