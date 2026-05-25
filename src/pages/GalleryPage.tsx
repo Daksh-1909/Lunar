@@ -107,7 +107,7 @@ export const GalleryPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-void min-h-screen pt-4 pb-24 px-6 md:px-12 relative overflow-hidden">
+    <div className="w-full bg-transparent min-h-screen pt-4 pb-24 px-6 md:px-12 relative overflow-hidden">
       {/* 1. FILTER BAR - Sticky under frosted subnav */}
       <div className="max-w-7xl mx-auto flex flex-col gap-6 mb-12 select-none">
         
