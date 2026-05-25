@@ -45,7 +45,7 @@ export const collections: Collection[] = [
     slug: "blood-moon-chronicles",
     title: "Blood Moon Chronicles",
     description: "A dark, breathtaking study of total lunar eclipses captured from various continents, highlighting the deep crimson glow of the Earth's shadow.",
-    coverImage: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=1200&auto=format&fit=crop&q=80",
+    coverImage: "/photos/red-moon/A_breathtaking_close-up_astrophotography_image_202605252118.jpeg",
     photoIds: [],
     tags: ["Moon", "Eclipse", "Night Sky", "Red"],
     createdAt: "2025-10-15",
@@ -56,7 +56,7 @@ export const collections: Collection[] = [
     slug: "total-eclipse-2024",
     title: "Total Eclipse 2024",
     description: "The Great American Solar Eclipse in high detail, tracking the stunning corona flares, Baily's beads, and the eerie twilight of totality.",
-    coverImage: "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=1200&auto=format&fit=crop&q=80",
+    coverImage: "/photos/eclipse/A_spectacular_total_solar_eclipse_202605252120.jpeg",
     photoIds: [],
     tags: ["Eclipse", "Solar", "Corona", "Rare"],
     createdAt: "2024-04-10",
@@ -67,7 +67,7 @@ export const collections: Collection[] = [
     slug: "lunar-phases-complete-year",
     title: "Lunar Phases: A Complete Year",
     description: "A meticulous 12-month study documenting the waxing, waning, crescent, and gibbous phases of our moon in extreme resolution.",
-    coverImage: "https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?w=1200&auto=format&fit=crop&q=80",
+    coverImage: "/photos/full-moon/An_ultra_detailed_monochrome_full_202605252121.jpeg",
     photoIds: [],
     tags: ["Moon", "Phases", "Lunar Cycle", "Monochrome"],
     createdAt: "2025-12-20",
@@ -78,7 +78,7 @@ export const collections: Collection[] = [
     slug: "midnight-forests",
     title: "Midnight Forests",
     description: "Ancient woodlands illuminated solely by moonlight, starlight, and the bioluminescent whispers of the nocturnal forest floor.",
-    coverImage: "https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&auto=format&fit=crop&q=80",
+    coverImage: "/photos/forest/Ancient_pine_forest_illuminated_by_202605252122.jpeg",
     photoIds: [],
     tags: ["Forests", "Nature", "Night", "Moody"],
     createdAt: "2025-08-05",
@@ -89,7 +89,7 @@ export const collections: Collection[] = [
     slug: "ocean-meets-sky",
     title: "Ocean Meets Sky",
     description: "Minimalist seascapes where the horizon dissolves under starlit nights, dramatic twilight hours, and bioluminescent ocean waves.",
-    coverImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&auto=format&fit=crop&q=80",
+    coverImage: "/photos/ocean/A_classic_lighthouse_on_rocky_202605252123.jpeg",
     photoIds: [],
     tags: ["Oceans", "Nature", "Horizon", "Reflections"],
     createdAt: "2025-11-01",
@@ -100,7 +100,7 @@ export const collections: Collection[] = [
     slug: "aurora-borealis-iceland",
     title: "Aurora Borealis: Iceland",
     description: "The cosmic dance of the Northern Lights over cascading waterfalls, black sand beaches, and deep blue glacial lagoons.",
-    coverImage: "https://images.unsplash.com/photo-1483168527879-c66136b56105?w=1200&auto=format&fit=crop&q=80",
+    coverImage: "/photos/aurora/A_vibrant_green_and_purple_202605252124.jpeg",
     photoIds: [],
     tags: ["Auroras", "Iceland", "Glaciers", "Green"],
     createdAt: "2025-02-14",
@@ -111,7 +111,7 @@ export const collections: Collection[] = [
     slug: "desert-moonrise",
     title: "Desert Moonrise",
     description: "The surreal landscape of the Atacama and Sahara deserts as the full moon rises over windswept dunes and silent rock monoliths.",
-    coverImage: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=1200&auto=format&fit=crop&q=80",
+    coverImage: "/photos/desert/A_giant_orange_full_moon_202605252125.jpeg",
     photoIds: [],
     tags: ["Moon", "Desert", "Dunes", "Warm"],
     createdAt: "2025-06-30",
@@ -122,7 +122,7 @@ export const collections: Collection[] = [
     slug: "thunderstorm-gallery",
     title: "Thunderstorm Gallery",
     description: "Stunning displays of atmospheric power, showcasing branching lightning strikes, ominous shelf clouds, and electric storms worldwide.",
-    coverImage: "https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?w=1200&auto=format&fit=crop&q=80",
+    coverImage: "/photos/thunder-storm/A_giant_tornado_vortex_under_202605252126.jpeg",
     photoIds: [],
     tags: ["Storms", "Lightning", "Atmosphere", "Power"],
     createdAt: "2025-07-22",
@@ -133,7 +133,7 @@ export const collections: Collection[] = [
     slug: "mountain-silhouettes",
     title: "Mountain Silhouettes",
     description: "High altitude peaks towering above the clouds, backlit by the setting sun, rising moons, and remote, star-studded horizons.",
-    coverImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&auto=format&fit=crop&q=80",
+    coverImage: "/photos/mountains/A_glass-like_alpine_lake_reflecting_202605252125.jpeg",
     photoIds: [],
     tags: ["Mountains", "Nature", "Silhouettes", "Peaks"],
     createdAt: "2025-09-18",
@@ -141,101 +141,527 @@ export const collections: Collection[] = [
   }
 ];
 
-// Helper to generate photo structures
-const categoriesMap = {
-  moon: { keyword: "moon", tags: ["Lunar", "Moon", "Sky", "Cosmos"] },
-  eclipse: { keyword: "solar-eclipse", tags: ["Eclipse", "Solar", "Corona", "Alignment"] },
-  nature: { keyword: "nature", tags: ["Earth", "Landscape", "Wilderness", "Scenic"] },
-  "night-sky": { keyword: "milky-way", tags: ["Stars", "Milky Way", "Galaxy", "Universe"] },
-  "sunrise-sunset": { keyword: "sunset", tags: ["Twilight", "Golden Hour", "Dusk", "Colors"] },
-  storms: { keyword: "lightning", tags: ["Storm", "Electricity", "Thunder", "Atmosphere"] },
-  forests: { keyword: "forest-night", tags: ["Trees", "Wildwood", "Nature", "Foggy"] },
-  oceans: { keyword: "ocean-night", tags: ["Sea", "Waves", "Seascape", "Horizon"] },
-  mountains: { keyword: "mountain-night", tags: ["Summit", "Peaks", "Highlands", "Elevation"] },
-  auroras: { keyword: "aurora", tags: ["Northern Lights", "Aurora", "Green", "Cosmic"] }
-};
+export const photos: Photo[] = [
+  // Collection 1: Blood Moon Chronicles (c1)
+  {
+    id: "photo-red-moon-1",
+    title: "Ethereal Eclipse Alignment",
+    description: "A breathtaking close-up astrophotography image detailing the Earth's shadow sliding across the craters of the moon during eclipse totality.",
+    src: "/photos/red-moon/A_breathtaking_close-up_astrophotography_image_202605252118.jpeg",
+    thumbnailSrc: "/photos/red-moon/A_breathtaking_close-up_astrophotography_image_202605252118.jpeg",
+    category: "moon",
+    tags: ["Lunar", "Moon", "Eclipse", "Astrophotography", "p1"],
+    photographer: photographers[0],
+    location: "Reykjavik, Iceland",
+    dateTaken: "2025-10-15",
+    likes: 342,
+    views: 2450,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 600mm f/4 GM OSS",
+      iso: 400,
+      aperture: "f/4.0",
+      shutterSpeed: "2s",
+      focalLength: "600mm"
+    },
+    collectionIds: ["c1"]
+  },
+  {
+    id: "photo-red-moon-2",
+    title: "Blood Moon Rising",
+    description: "A giant crimson blood moon captured suspended in the dark sky directly above silhouetted pine tree branches.",
+    src: "/photos/red-moon/A_giant_crimson_blood_moon_202605252118.jpeg",
+    thumbnailSrc: "/photos/red-moon/A_giant_crimson_blood_moon_202605252118.jpeg",
+    category: "moon",
+    tags: ["Lunar", "Moon", "Eclipse", "Red", "p1"],
+    photographer: photographers[0],
+    location: "Lofoten Islands, Norway",
+    dateTaken: "2025-10-15",
+    likes: 512,
+    views: 4120,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 200-600mm f/5.6-6.3 G OSS",
+      iso: 800,
+      aperture: "f/6.3",
+      shutterSpeed: "1.5s",
+      focalLength: "400mm"
+    },
+    collectionIds: ["c1"]
+  },
+  {
+    id: "photo-red-moon-3",
+    title: "Crimson Totality",
+    description: "A massive, detailed red blood moon resting inside a pitch-black cosmic space, showcasing high contrast lunar features.",
+    src: "/photos/red-moon/A_massive_red_blood_moon_202605252118.jpeg",
+    thumbnailSrc: "/photos/red-moon/A_massive_red_blood_moon_202605252118.jpeg",
+    category: "moon",
+    tags: ["Lunar", "Moon", "Eclipse", "Crimson", "p1"],
+    photographer: photographers[0],
+    location: "Mauna Kea, Hawaii",
+    dateTaken: "2025-10-15",
+    likes: 489,
+    views: 3820,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "Celestron EdgeHD 11\"",
+      iso: 1600,
+      aperture: "f/10.0",
+      shutterSpeed: "4s",
+      focalLength: "2800mm"
+    },
+    collectionIds: ["c1"]
+  },
 
-// Generates 60 unique mock photos
-export const photos: Photo[] = Array.from({ length: 60 }).map((_, idx) => {
-  const categoriesList = Object.keys(categoriesMap) as Array<keyof typeof categoriesMap>;
-  const category = categoriesList[idx % categoriesList.length];
-  const config = categoriesMap[category];
-  const photographer = photographers[idx % photographers.length];
-  const collectionIndex = idx % collections.length;
-  const collection = collections[collectionIndex];
-  
-  // Custom camera parameters
-  const isoValues = [100, 200, 400, 800, 1600, 3200, 6400];
-  const apertureValues = ["f/1.4", "f/1.8", "f/2.8", "f/4.0", "f/5.6", "f/8.0"];
-  const shutterSpeedValues = ["1/8000s", "1/2000s", "1/500s", "1/30s", "2s", "15s", "30s"];
-  const focalLengthValues = ["14mm", "24mm", "35mm", "50mm", "85mm", "200mm", "600mm"];
-  
-  const cameraSettings = {
-    camera: idx % 2 === 0 ? "Sony Alpha 7R V" : "Nikon Z9",
-    lens: idx % 2 === 0 ? "FE 24-70mm f/2.8 GM II" : "NIKKOR Z 70-200mm f/2.8 VR S",
-    iso: isoValues[idx % isoValues.length],
-    aperture: apertureValues[idx % apertureValues.length],
-    shutterSpeed: shutterSpeedValues[idx % shutterSpeedValues.length],
-    focalLength: focalLengthValues[idx % focalLengthValues.length]
-  };
+  // Collection 2: Total Eclipse 2024 (c2)
+  {
+    id: "photo-eclipse-1",
+    title: "Corona of Totality",
+    description: "A spectacular total solar eclipse displaying the brilliant, glowing white corona flares looping around the dark moon disk.",
+    src: "/photos/eclipse/A_spectacular_total_solar_eclipse_202605252120.jpeg",
+    thumbnailSrc: "/photos/eclipse/A_spectacular_total_solar_eclipse_202605252120.jpeg",
+    category: "eclipse",
+    tags: ["Eclipse", "Solar", "Corona", "Alignment", "p2"],
+    photographer: photographers[1],
+    location: "Texas, USA",
+    dateTaken: "2024-04-10",
+    likes: 678,
+    views: 5290,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Nikon Z9",
+      lens: "NIKKOR Z 400mm f/4.5 VR S",
+      iso: 100,
+      aperture: "f/4.5",
+      shutterSpeed: "1/250s",
+      focalLength: "400mm"
+    },
+    collectionIds: ["c2"]
+  },
+  {
+    id: "photo-eclipse-2",
+    title: "Diamond Ring Flare",
+    description: "The diamond ring effect captured during totality, showcasing a singular brilliant flash of white sun rays on the moon's rim.",
+    src: "/photos/eclipse/The_diamond_ring_effect_during_202605252120.jpeg",
+    thumbnailSrc: "/photos/eclipse/The_diamond_ring_effect_during_202605252120.jpeg",
+    category: "eclipse",
+    tags: ["Eclipse", "Solar", "Diamond Ring", "Flares", "p2"],
+    photographer: photographers[1],
+    location: "Indiana, USA",
+    dateTaken: "2024-04-10",
+    likes: 720,
+    views: 6110,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Nikon Z9",
+      lens: "NIKKOR Z 800mm f/6.3 VR S",
+      iso: 200,
+      aperture: "f/6.3",
+      shutterSpeed: "1/4000s",
+      focalLength: "800mm"
+    },
+    collectionIds: ["c2"]
+  },
 
-  const id = `photo-${idx + 1}`;
-  
-  // Update collection mapping
-  collection.photoIds.push(id);
+  // Collection 3: Lunar Phases: A Complete Year (c3)
+  {
+    id: "photo-full-moon-1",
+    title: "Monochrome Moon Details",
+    description: "An ultra-detailed monochrome full moon, displaying sharp impact craters, Tycho rays, and realistic lunar mountain textures.",
+    src: "/photos/full-moon/An_ultra_detailed_monochrome_full_202605252121.jpeg",
+    thumbnailSrc: "/photos/full-moon/An_ultra_detailed_monochrome_full_202605252121.jpeg",
+    category: "moon",
+    tags: ["Lunar", "Moon", "Monochrome", "High-Resolution", "p1"],
+    photographer: photographers[0],
+    location: "Atacama Desert, Chile",
+    dateTaken: "2025-12-20",
+    likes: 412,
+    views: 3100,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 600mm f/4 GM OSS",
+      iso: 100,
+      aperture: "f/8.0",
+      shutterSpeed: "1/125s",
+      focalLength: "600mm"
+    },
+    collectionIds: ["c3"]
+  },
+  {
+    id: "photo-full-moon-2",
+    title: "Supermoon Over Summit",
+    description: "A giant, glowing luminous supermoon rising grandly behind a dark, sharp mountain summit silhouette in the freezing cold night.",
+    src: "/photos/full-moon/A_giant_luminous_supermoon_rising_202605252121.jpeg",
+    thumbnailSrc: "/photos/full-moon/A_giant_luminous_supermoon_rising_202605252121.jpeg",
+    category: "moon",
+    tags: ["Lunar", "Moon", "Supermoon", "Summit", "p1"],
+    photographer: photographers[0],
+    location: "Banff National Park, Canada",
+    dateTaken: "2025-12-20",
+    likes: 560,
+    views: 4500,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 200-600mm f/5.6-6.3 G OSS",
+      iso: 400,
+      aperture: "f/6.3",
+      shutterSpeed: "1/30s",
+      focalLength: "600mm"
+    },
+    collectionIds: ["c3"]
+  },
+  {
+    id: "photo-full-moon-3",
+    title: "Silver Crescent Hanging",
+    description: "A gorgeous glowing silver crescent moon hanging low in the dark indigo twilight sky with warm ambient gradients.",
+    src: "/photos/full-moon/A_glowing_silver_crescent_moon_202605252121.jpeg",
+    thumbnailSrc: "/photos/full-moon/A_glowing_silver_crescent_moon_202605252121.jpeg",
+    category: "moon",
+    tags: ["Lunar", "Moon", "Crescent", "Twilight", "p1"],
+    photographer: photographers[0],
+    location: "Reykjavik, Iceland",
+    dateTaken: "2025-12-20",
+    likes: 389,
+    views: 2900,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 85mm f/1.4 GM",
+      iso: 200,
+      aperture: "f/1.8",
+      shutterSpeed: "1/4s",
+      focalLength: "85mm"
+    },
+    collectionIds: ["c3"]
+  },
 
-  // Unsplash URLs with seed for determinism
-  const src = `https://images.unsplash.com/photo-${1500000000000 + (idx * 147530)}?w=1600&auto=format&fit=crop&q=85&sig=${idx}`;
-  const thumbnailSrc = `https://images.unsplash.com/photo-${1500000000000 + (idx * 147530)}?w=600&auto=format&fit=crop&q=75&sig=${idx}`;
+  // Collection 4: Midnight Forests (c4)
+  {
+    id: "photo-forest-1",
+    title: "Ancient Canopy Glow",
+    description: "An ancient pine forest illuminated softly by moonlight filtering through high, foggy branches, creating an ethereal green atmosphere.",
+    src: "/photos/forest/Ancient_pine_forest_illuminated_by_202605252122.jpeg",
+    thumbnailSrc: "/photos/forest/Ancient_pine_forest_illuminated_by_202605252122.jpeg",
+    category: "forests",
+    tags: ["Forests", "Nature", "Moonlight", "Ethereal", "p3"],
+    photographer: photographers[2],
+    location: "Kyoto, Japan",
+    dateTaken: "2025-08-05",
+    likes: 298,
+    views: 1890,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Nikon Z9",
+      lens: "NIKKOR Z 24-70mm f/2.8 S",
+      iso: 3200,
+      aperture: "f/2.8",
+      shutterSpeed: "15s",
+      focalLength: "28mm"
+    },
+    collectionIds: ["c4"]
+  },
+  {
+    id: "photo-forest-2",
+    title: "Redwood Twilight",
+    description: "Tall redwood trees looking straight up into the starry sky canopy as soft moonlight washes down through the misty branches.",
+    src: "/photos/forest/Tall_redwood_trees_under_a_202605252122.jpeg",
+    thumbnailSrc: "/photos/forest/Tall_redwood_trees_under_a_202605252122.jpeg",
+    category: "forests",
+    tags: ["Forests", "Nature", "Redwoods", "Stars", "p3"],
+    photographer: photographers[2],
+    location: "Yosemite Valley, USA",
+    dateTaken: "2025-08-05",
+    likes: 315,
+    views: 2010,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Nikon Z9",
+      lens: "NIKKOR Z 14-24mm f/2.8 S",
+      iso: 6400,
+      aperture: "f/2.8",
+      shutterSpeed: "20s",
+      focalLength: "14mm"
+    },
+    collectionIds: ["c4"]
+  },
 
-  const locations = [
-    "Mauna Kea, Hawaii",
-    "Atacama Desert, Chile",
-    "Jokulsarlon, Iceland",
-    "Lofoten Islands, Norway",
-    "Yosemite Valley, USA",
-    "Mount Fuji, Japan",
-    "Banff National Park, Canada",
-    "Dolomites, Italy",
-    "Sahara Desert, Morocco",
-    "Himalayas, Nepal"
-  ];
+  // Collection 5: Ocean Meets Sky (c5)
+  {
+    id: "photo-ocean-1",
+    title: "Sentinel of Starry Horizon",
+    description: "A classic lighthouse on a rocky cliff under full starlight, throwing its intense beam of light across the starry night horizon.",
+    src: "/photos/ocean/A_classic_lighthouse_on_rocky_202605252123.jpeg",
+    thumbnailSrc: "/photos/ocean/A_classic_lighthouse_on_rocky_202605252123.jpeg",
+    category: "oceans",
+    tags: ["Oceans", "Lighthouse", "Stars", "Reflections", "p3"],
+    photographer: photographers[2],
+    location: "Lofoten Islands, Norway",
+    dateTaken: "2025-11-01",
+    likes: 387,
+    views: 2780,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 24mm f/1.4 GM",
+      iso: 1600,
+      aperture: "f/1.4",
+      shutterSpeed: "8s",
+      focalLength: "24mm"
+    },
+    collectionIds: ["c5"]
+  },
+  {
+    id: "photo-ocean-2",
+    title: "Bioluminescent Wavebreaks",
+    description: "Glowing blue bioluminescent ocean waves crashing softly on dark sand beaches under a sparkling starry night sky.",
+    src: "/photos/ocean/Glowing_blue_bioluminescent_ocean_waves_202605252123.jpeg",
+    thumbnailSrc: "/photos/ocean/Glowing_blue_bioluminescent_ocean_waves_202605252123.jpeg",
+    category: "oceans",
+    tags: ["Oceans", "Bioluminescence", "Waves", "Night", "p3"],
+    photographer: photographers[2],
+    location: "Mauna Kea, Hawaii",
+    dateTaken: "2025-11-01",
+    likes: 495,
+    views: 3900,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 16-35mm f/2.8 GM II",
+      iso: 3200,
+      aperture: "f/2.8",
+      shutterSpeed: "10s",
+      focalLength: "16mm"
+    },
+    collectionIds: ["c5"]
+  },
 
-  // Capitalize category names for nice display
-  const titleCategory = category.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-  const titles = [
-    `Mystic ${titleCategory}`,
-    `Whispering ${titleCategory}`,
-    `Eternal ${titleCategory}`,
-    `Infinite ${titleCategory}`,
-    `Symphony of ${titleCategory}`,
-    `Guardians of ${titleCategory}`
-  ];
+  // Collection 6: Aurora Borealis: Iceland (c6)
+  {
+    id: "photo-aurora-1",
+    title: "Vibrant Auroral Arc",
+    description: "A gorgeous green and purple aurora borealis displaying glowing curtains dancing over cascades and Icelandic geological formations.",
+    src: "/photos/aurora/A_vibrant_green_and_purple_202605252124.jpeg",
+    thumbnailSrc: "/photos/aurora/A_vibrant_green_and_purple_202605252124.jpeg",
+    category: "auroras",
+    tags: ["Auroras", "Iceland", "Green", "Northern Lights", "p1"],
+    photographer: photographers[0],
+    location: "Jokulsarlon, Iceland",
+    dateTaken: "2025-02-14",
+    likes: 620,
+    views: 4890,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 14mm f/1.8 GM",
+      iso: 1600,
+      aperture: "f/1.8",
+      shutterSpeed: "4s",
+      focalLength: "14mm"
+    },
+    collectionIds: ["c6"]
+  },
+  {
+    id: "photo-aurora-2",
+    title: "Celestial Northern Lights",
+    description: "Massive green northern lights arching directly over snowy mountains and glowing glacial caves in remote Iceland landscapes.",
+    src: "/photos/aurora/Massive_northern_lights_over_snowy_202605252124.jpeg",
+    thumbnailSrc: "/photos/aurora/Massive_northern_lights_over_snowy_202605252124.jpeg",
+    category: "auroras",
+    tags: ["Auroras", "Iceland", "Glaciers", "Cosmic", "p1"],
+    photographer: photographers[0],
+    location: "Reykjavik, Iceland",
+    dateTaken: "2025-02-14",
+    likes: 580,
+    views: 4400,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 24mm f/1.4 GM",
+      iso: 3200,
+      aperture: "f/1.6",
+      shutterSpeed: "3s",
+      focalLength: "24mm"
+    },
+    collectionIds: ["c6"]
+  },
 
-  const title = `${titles[idx % titles.length]} II`;
-  const description = `An ethereal, high-fidelity capture of ${category.replace("-", " ")} displaying the intricate textures and magnificent color balance only seen in the untamed outdoors. Captured during prime atmospheric clarity.`;
+  // Collection 7: Desert Moonrise (c7)
+  {
+    id: "photo-desert-1",
+    title: "Atacama Desert Moonrise",
+    description: "A giant warm orange full moon rising low on the horizon over clean rippled sand dunes in the absolute silent desert.",
+    src: "/photos/desert/A_giant_orange_full_moon_202605252125.jpeg",
+    thumbnailSrc: "/photos/desert/A_giant_orange_full_moon_202605252125.jpeg",
+    category: "night-sky",
+    tags: ["Moon", "Desert", "Dunes", "Warm", "p4"],
+    photographer: photographers[3],
+    location: "Atacama Desert, Chile",
+    dateTaken: "2025-06-30",
+    likes: 390,
+    views: 2890,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 70-200mm f/2.8 GM II",
+      iso: 200,
+      aperture: "f/5.6",
+      shutterSpeed: "1/15s",
+      focalLength: "200mm"
+    },
+    collectionIds: ["c7"]
+  },
+  {
+    id: "photo-desert-2",
+    title: "Galaxy Over Sentinel Tent",
+    description: "A small explorer tent glowing orange under the sparkling sweep of the Milky Way core in the Atacama sand wastes.",
+    src: "/photos/desert/A_glowing_explorer_tent_under_202605252125.jpeg",
+    thumbnailSrc: "/photos/desert/A_glowing_explorer_tent_under_202605252125.jpeg",
+    category: "night-sky",
+    tags: ["Stars", "Milky Way", "Tent", "Desert", "p4"],
+    photographer: photographers[3],
+    location: "Sahara Desert, Morocco",
+    dateTaken: "2025-06-30",
+    likes: 454,
+    views: 3200,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 16-35mm f/2.8 GM II",
+      iso: 3200,
+      aperture: "f/2.8",
+      shutterSpeed: "25s",
+      focalLength: "16mm"
+    },
+    collectionIds: ["c7"]
+  },
 
-  return {
-    id,
-    title,
-    description,
-    src,
-    thumbnailSrc,
-    category,
-    tags: [...config.tags, collection.tags[0], photographer.name.split(" ")[0]],
-    photographer,
-    location: locations[idx % locations.length],
-    dateTaken: `2025-0${(idx % 9) + 1}-1${idx % 9}`,
-    likes: 120 + (idx * 27) - (idx * idx * 2),
-    views: 1240 + (idx * 143),
-    width: idx % 3 === 0 ? 1920 : idx % 3 === 1 ? 1440 : 1080,
-    height: idx % 3 === 0 ? 1280 : idx % 3 === 1 ? 1920 : 1080,
-    cameraSettings,
-    collectionIds: [collection.id]
-  };
-});
+  // Collection 8: Thunderstorm Gallery (c8)
+  {
+    id: "photo-storm-1",
+    title: "Tornado Vortex Silhouette",
+    description: "A towering, dramatic storm tornado vortex touching down against an ominous orange and purple twilight sky.",
+    src: "/photos/thunder-storm/A_giant_tornado_vortex_under_202605252126.jpeg",
+    thumbnailSrc: "/photos/thunder-storm/A_giant_tornado_vortex_under_202605252126.jpeg",
+    category: "storms",
+    tags: ["Storms", "Tornado", "Atmosphere", "Danger", "p2"],
+    photographer: photographers[1],
+    location: "Colorado, USA",
+    dateTaken: "2025-07-22",
+    likes: 498,
+    views: 3790,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Nikon Z9",
+      lens: "NIKKOR Z 24-70mm f/2.8 S",
+      iso: 400,
+      aperture: "f/4.0",
+      shutterSpeed: "1/60s",
+      focalLength: "35mm"
+    },
+    collectionIds: ["c8"]
+  },
+  {
+    id: "photo-storm-2",
+    title: "Electric Lightning Strikes",
+    description: "Branching purple and white lightning bolts striking the open fields under giant severe shelf storm clouds.",
+    src: "/photos/thunder-storm/Massive_branching_lightning_bolt_striking_202605252126.jpeg",
+    thumbnailSrc: "/photos/thunder-storm/Massive_branching_lightning_bolt_striking_202605252126.jpeg",
+    category: "storms",
+    tags: ["Storms", "Lightning", "Atmosphere", "Power", "p2"],
+    photographer: photographers[1],
+    location: "Yosemite Valley, USA",
+    dateTaken: "2025-07-22",
+    likes: 520,
+    views: 4100,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Nikon Z9",
+      lens: "NIKKOR Z 14-24mm f/2.8 S",
+      iso: 800,
+      aperture: "f/2.8",
+      shutterSpeed: "8s",
+      focalLength: "18mm"
+    },
+    collectionIds: ["c8"]
+  },
 
-// Update the photoIds collections one final time
+  // Collection 9: Mountain Silhouettes (c9)
+  {
+    id: "photo-mountain-1",
+    title: "Alpine Mirror Skies",
+    description: "A gorgeous glass-like alpine lake reflecting snowy mountains and stars under a pitch-black night sky.",
+    src: "/photos/mountains/A_glass-like_alpine_lake_reflecting_202605252125.jpeg",
+    thumbnailSrc: "/photos/mountains/A_glass-like_alpine_lake_reflecting_202605252125.jpeg",
+    category: "mountains",
+    tags: ["Mountains", "Nature", "Reflections", "Summit", "p4"],
+    photographer: photographers[3],
+    location: "Dolomites, Italy",
+    dateTaken: "2025-09-18",
+    likes: 412,
+    views: 2980,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 24mm f/1.4 GM",
+      iso: 3200,
+      aperture: "f/1.4",
+      shutterSpeed: "12s",
+      focalLength: "24mm"
+    },
+    collectionIds: ["c9"]
+  },
+  {
+    id: "photo-mountain-2",
+    title: "Jagged Summit Totality",
+    description: "Jagged snow-covered mountains towering above a soft sea of clouds under a star-studded sky, clean and serene.",
+    src: "/photos/mountains/Jagged_snow-covered_mountains_above_clouds_202605252125.jpeg",
+    thumbnailSrc: "/photos/mountains/Jagged_snow-covered_mountains_above_clouds_202605252125.jpeg",
+    category: "mountains",
+    tags: ["Mountains", "Nature", "Silhouettes", "Peaks", "p4"],
+    photographer: photographers[3],
+    location: "Himalayas, Nepal",
+    dateTaken: "2025-09-18",
+    likes: 580,
+    views: 4500,
+    width: 1920,
+    height: 1280,
+    cameraSettings: {
+      camera: "Sony Alpha 7R V",
+      lens: "FE 16-35mm f/2.8 GM II",
+      iso: 1600,
+      aperture: "f/4.0",
+      shutterSpeed: "15s",
+      focalLength: "16mm"
+    },
+    collectionIds: ["c9"]
+  }
+];
+
+// Update the photoIds collections one final time dynamically
 photos.forEach(photo => {
   const collection = collections.find(c => c.id === photo.collectionIds[0]);
   if (collection && !collection.photoIds.includes(photo.id)) {
