@@ -116,7 +116,7 @@ export const ContactPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full bg-void min-h-screen py-20 px-6 md:px-12 relative overflow-hidden flex items-center">
+    <div className="w-full bg-transparent min-h-screen py-20 px-6 md:px-12 relative overflow-hidden flex items-center">
       {/* Canvas for success confetti */}
       <canvas
         ref={canvasRef}
@@ -186,7 +186,7 @@ export const ContactPage: React.FC = () => {
         </div>
 
         {/* Right Column: Contact form */}
-        <div className="lg:col-span-7 bg-cosmos border border-stardust/40 rounded-[28px] p-8 md:p-12 relative">
+        <div className="lg:col-span-7 bg-cosmos/40 backdrop-blur-sm border border-stardust/40 rounded-[28px] p-8 md:p-12 relative">
           
           {isSuccess ? (
             /* SUCCESS STATE PANEL */

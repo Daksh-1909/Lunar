@@ -28,7 +28,7 @@ export const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-void min-h-screen pb-24 overflow-hidden relative">
+    <div className="w-full bg-transparent min-h-screen pb-24 overflow-hidden relative">
       {/* 1. HERO BANNER */}
       <section className="relative w-full py-24 md:py-36 px-6 md:px-12 flex flex-col items-center justify-center text-center overflow-hidden border-b border-stardust/40">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-repeat bg-[size:16px_16px]">
@@ -70,7 +70,7 @@ export const AboutPage: React.FC = () => {
           {photographers.map((p) => (
             <div
               key={p.id}
-              className="group bg-cosmos border border-stardust/40 rounded-[24px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02] hover:ring-1 hover:ring-eclipse/20 select-none"
+              className="group bg-cosmos/40 backdrop-blur-sm border border-stardust/40 rounded-[24px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02] hover:ring-1 hover:ring-eclipse/20 select-none"
             >
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-eclipse/40 mb-5 relative">
                 <img src={p.avatar} alt={p.name} className="w-full h-full object-cover" />
@@ -109,7 +109,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* 3. TIMELINE SECTION */}
-      <section className="w-full bg-cosmos border-y border-stardust/40 py-24 px-6 md:px-12 relative overflow-hidden select-none">
+      <section className="w-full bg-cosmos/40 backdrop-blur-sm border-y border-stardust/40 py-24 px-6 md:px-12 relative overflow-hidden select-none">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
