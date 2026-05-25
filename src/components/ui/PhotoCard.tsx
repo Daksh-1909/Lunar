@@ -56,7 +56,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
 
       {/* Static category pill top-left */}
       <div className="absolute top-4 left-4 z-20">
-        <span className={`text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full border ${categoryPills[category] || "border-white/10 bg-white/5 text-white"}`}>
+        <span className={`text-[11px] font-ui font-semibold tracking-wide px-2.5 py-1 rounded-full border ${categoryPills[category] || "border-white/10 bg-white/5 text-white"}`}>
           {getCategoryLabel(category)}
         </span>
       </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { Moon, ArrowUpRight, Compass, ShieldCheck, HelpCircle, Award } from "lucide-react";
-import { photographers } from "../data/mockData";
+import { Moon, Compass, ShieldCheck, HelpCircle, Award } from "lucide-react";
 import { SpaceBackground } from "../components/ui/SpaceBackground";
 
 export const AboutPage: React.FC = () => {
@@ -56,59 +55,7 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. THREE PHOTOGRAPHERS PROFILES */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 py-24">
-        <div className="text-center max-w-2xl mx-auto mb-16 select-none">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-            MEET THE ARTISTS
-          </span>
-          <h2 className="text-4xl font-display text-white mt-3 font-semibold display-tight">
-            Behind the Lenses
-          </h2>
-          <div className="w-12 h-[1px] bg-stardust mx-auto mt-4" />
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {photographers.map((p) => (
-            <div
-              key={p.id}
-              className="group bg-cosmos/40 backdrop-blur-sm border border-stardust/40 rounded-[24px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02] hover:ring-1 hover:ring-eclipse/20 select-none"
-            >
-              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-eclipse/40 mb-5 relative">
-                <img src={p.avatar} alt={p.name} className="w-full h-full object-cover" />
-              </div>
-
-              <h3 className="text-xl font-display font-medium text-white group-hover:text-eclipse transition-colors">
-                {p.name}
-              </h3>
-              
-              <span className="font-mono text-[9px] uppercase tracking-widest text-silver/50 mt-1">
-                {p.location}
-              </span>
-
-              <p className="text-xs text-silver/70 font-ui leading-relaxed mt-4 flex-grow line-clamp-4">
-                {p.bio}
-              </p>
-
-              <div className="mt-6 pt-4 border-t border-stardust/20 w-full flex items-center justify-center gap-4 text-xs font-mono">
-                <a
-                  href={`https://instagram.com/${p.instagram}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-silver hover:text-white flex items-center gap-0.5 transition-colors"
-                >
-                  <span>IG</span>
-                  <ArrowUpRight className="w-2.5 h-2.5" />
-                </a>
-                <span className="text-silver/20">•</span>
-                <span className="text-primary-on-dark hover:text-white cursor-pointer transition-colors">
-                  Portfolio
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* 3. TIMELINE SECTION */}
       <section className="w-full bg-cosmos/40 backdrop-blur-sm border-y border-stardust/40 py-24 px-6 md:px-12 relative overflow-hidden select-none">
