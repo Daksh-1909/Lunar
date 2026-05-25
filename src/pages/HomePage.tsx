@@ -200,11 +200,11 @@ export const HomePage: React.FC = () => {
 
   const categories = [
     {
-      title: "Moon Phases",
-      desc: "Witness the lunar cycle in all its magnificent glory.",
-      count: "24",
+      title: "Full Moon / Supermoon",
+      desc: "Witness the lunar cycle and glorious supermoons in high detail.",
+      count: "3 Series",
       image: "https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?w=600&auto=format&fit=crop&q=80",
-      path: "/gallery?category=moon",
+      path: "/gallery?category=full-moon",
       badgeColor: "bg-eclipse text-black"
     },
     {

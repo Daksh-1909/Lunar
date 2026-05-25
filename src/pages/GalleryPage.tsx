@@ -35,7 +35,8 @@ export const GalleryPage: React.FC = () => {
 
   const categories: { label: string; value: PhotoCategory | "all" }[] = [
     { label: "All", value: "all" },
-    { label: "Moon", value: "moon" },
+    { label: "Red Moon", value: "red-moon" },
+    { label: "Full Moon", value: "full-moon" },
     { label: "Eclipse", value: "eclipse" },
     { label: "Nature", value: "nature" },
     { label: "Night Sky", value: "night-sky" },
