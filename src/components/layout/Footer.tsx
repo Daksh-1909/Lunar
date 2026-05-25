@@ -139,7 +139,7 @@ export const Footer: React.FC = () => {
         
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2 text-xs font-semibold">
-            <img src="/moon-icon.png" alt="Moon Icon" className="w-3.5 h-3.5 object-contain" />
+            <img src="/moon-icon.png" alt="Moon Icon" className="w-6 h-6 object-contain" />
             <span className="uppercase tracking-wider text-[10px] text-silver/50 font-normal">MADE WITH LOVE BY</span>
             <a
               href="https://dakshpatel.pages.dev/"
