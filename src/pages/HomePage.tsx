@@ -1,12 +1,14 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChevronDown, ArrowRight, ArrowLeft, Send } from "lucide-react";
 import { StarField } from "../components/ui/StarField";
 import { AnimatedCounter } from "../components/ui/AnimatedCounter";
 import { photos, collections } from "../data/mockData";
 import { useGallery } from "../context/GalleryContext";
+import { OrbitButton } from "../components/ui/OrbitButton";
 
 export const HomePage: React.FC = () => {
+  const navigate = useNavigate();
   const { openLightbox } = useGallery();
   const filmstripRef = useRef<HTMLDivElement | null>(null);
 
@@ -289,14 +291,22 @@ export const HomePage: React.FC = () => {
         {/* Headlines and CTAs */}
         <div className="max-w-4xl mx-auto z-10 flex flex-col items-center mt-6">
           {/* Action CTAs */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
-            <Link to="/gallery" className="btn-primary group min-w-[170px] text-center shadow-lg shadow-primary/20">
+          <div className="flex flex-col sm:flex-row items-center gap-2 mt-4">
+            <OrbitButton
+              color="blue"
+              onClick={() => navigate("/gallery")}
+              className="min-w-[170px]"
+            >
               Explore Gallery
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link to="/collections" className="btn-secondary min-w-[170px] text-center">
+            </OrbitButton>
+            <OrbitButton
+              color="cyan"
+              onClick={() => navigate("/collections")}
+              className="min-w-[170px]"
+            >
               View Collections
-            </Link>
+            </OrbitButton>
           </div>
         </div>
 
