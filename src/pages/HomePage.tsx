@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ChevronDown, ArrowRight, Send } from "lucide-react";
 import { StarField } from "../components/ui/StarField";
@@ -19,15 +19,7 @@ export const HomePage: React.FC = () => {
   const mousePos = useRef({ x: 0, y: 0 });
   const smoothMousePos = useRef({ x: 0, y: 0 });
   const gridOffset = useRef({ x: 0, y: 0 });
-
-  // Scroll-driven moon pop effect
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const gridSvgRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -62,6 +54,8 @@ export const HomePage: React.FC = () => {
 
     const scrollPos = { y: window.scrollY };
     const smoothScroll = { y: window.scrollY };
+    // Smooth scroll value for the moon pop effect (separate lerp target)
+    const popScroll = { smooth: window.scrollY };
 
     const handleScroll = () => {
       scrollPos.y = window.scrollY;
@@ -134,6 +128,27 @@ export const HomePage: React.FC = () => {
 
       smoothScroll.y += (scrollPos.y - smoothScroll.y) * 0.1;
       const rotationAngle = smoothScroll.y * 0.0008;
+
+      // ── Moon pop: lerp scroll value at 0.08 for extra smoothness ──
+      popScroll.smooth += (scrollPos.y - popScroll.smooth) * 0.08;
+      const s = popScroll.smooth;
+      const popProgress = Math.min(1, Math.max(0, (s - 30) / 110));  // 0→1 over 30–140px
+      const popScale    = 1 + popProgress * 0.06;                     // 1.00→1.06
+      const popBright   = 1 + popProgress * 0.12;                     // slight brighten
+
+      // Directly mutate canvas styles — zero React re-renders
+      const c = canvasRef.current;
+      if (c) {
+        c.style.transform        = `scale(${popScale})`;
+        c.style.filter           = `brightness(${popBright})`;
+        c.style.zIndex           = popProgress > 0.05 ? "25" : "0";
+      }
+
+      // Grid SVG fades out as moon pops
+      const gridSvg = gridSvgRef.current;
+      if (gridSvg) {
+        gridSvg.style.opacity = String(Math.max(0, 0.1 * (1 - popProgress)));
+      }
 
       // normalized offsets
       const nx = (smoothMousePos.current.x / rect.width) - 0.5;
