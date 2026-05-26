@@ -139,7 +139,8 @@ export const photos: Photo[] = [
       shutterSpeed: "2s",
       focalLength: "600mm"
     },
-    collectionIds: ["c1"]
+    collectionIds: ["c1"],
+    aiGenerated: true
   },
   {
     id: "photo-red-moon-2",
@@ -164,7 +165,8 @@ export const photos: Photo[] = [
       shutterSpeed: "1.5s",
       focalLength: "400mm"
     },
-    collectionIds: ["c1"]
+    collectionIds: ["c1"],
+    aiGenerated: true
   },
   {
     id: "photo-red-moon-3",
@@ -189,7 +191,8 @@ export const photos: Photo[] = [
       shutterSpeed: "4s",
       focalLength: "2800mm"
     },
-    collectionIds: ["c1"]
+    collectionIds: ["c1"],
+    aiGenerated: true
   },
 
   // Collection 2: Total Eclipse 2024 (c2)
@@ -216,7 +219,8 @@ export const photos: Photo[] = [
       shutterSpeed: "1/250s",
       focalLength: "400mm"
     },
-    collectionIds: ["c2"]
+    collectionIds: ["c2"],
+    aiGenerated: true
   },
   {
     id: "photo-eclipse-2",
@@ -241,7 +245,8 @@ export const photos: Photo[] = [
       shutterSpeed: "1/4000s",
       focalLength: "800mm"
     },
-    collectionIds: ["c2"]
+    collectionIds: ["c2"],
+    aiGenerated: true
   },
 
   // Collection 3: Lunar Phases: A Complete Year (c3)
@@ -268,7 +273,8 @@ export const photos: Photo[] = [
       shutterSpeed: "1/125s",
       focalLength: "600mm"
     },
-    collectionIds: ["c3"]
+    collectionIds: ["c3"],
+    aiGenerated: true
   },
   {
     id: "photo-full-moon-2",
@@ -293,7 +299,8 @@ export const photos: Photo[] = [
       shutterSpeed: "1/30s",
       focalLength: "600mm"
     },
-    collectionIds: ["c3"]
+    collectionIds: ["c3"],
+    aiGenerated: true
   },
   {
     id: "photo-full-moon-3",
@@ -318,7 +325,8 @@ export const photos: Photo[] = [
       shutterSpeed: "1/4s",
       focalLength: "85mm"
     },
-    collectionIds: ["c3"]
+    collectionIds: ["c3"],
+    aiGenerated: true
   },
 
   // Collection 4: Midnight Forests (c4)
@@ -345,7 +353,8 @@ export const photos: Photo[] = [
       shutterSpeed: "15s",
       focalLength: "28mm"
     },
-    collectionIds: ["c4"]
+    collectionIds: ["c4"],
+    aiGenerated: true
   },
   {
     id: "photo-forest-2",
@@ -370,7 +379,8 @@ export const photos: Photo[] = [
       shutterSpeed: "20s",
       focalLength: "14mm"
     },
-    collectionIds: ["c4"]
+    collectionIds: ["c4"],
+    aiGenerated: true
   },
 
   // Collection 5: Ocean Meets Sky (c5)
@@ -397,7 +407,8 @@ export const photos: Photo[] = [
       shutterSpeed: "8s",
       focalLength: "24mm"
     },
-    collectionIds: ["c5"]
+    collectionIds: ["c5"],
+    aiGenerated: true
   },
   {
     id: "photo-ocean-2",
@@ -422,7 +433,8 @@ export const photos: Photo[] = [
       shutterSpeed: "10s",
       focalLength: "16mm"
     },
-    collectionIds: ["c5"]
+    collectionIds: ["c5"],
+    aiGenerated: true
   },
 
   // Collection 6: Aurora Borealis: Iceland (c6)
@@ -449,7 +461,8 @@ export const photos: Photo[] = [
       shutterSpeed: "4s",
       focalLength: "14mm"
     },
-    collectionIds: ["c6"]
+    collectionIds: ["c6"],
+    aiGenerated: true
   },
   {
     id: "photo-aurora-2",
@@ -474,7 +487,8 @@ export const photos: Photo[] = [
       shutterSpeed: "3s",
       focalLength: "24mm"
     },
-    collectionIds: ["c6"]
+    collectionIds: ["c6"],
+    aiGenerated: true
   },
 
   // Collection 7: Desert Moonrise (c7)
@@ -501,7 +515,8 @@ export const photos: Photo[] = [
       shutterSpeed: "1/15s",
       focalLength: "200mm"
     },
-    collectionIds: ["c7"]
+    collectionIds: ["c7"],
+    aiGenerated: true
   },
   {
     id: "photo-desert-2",
@@ -526,7 +541,8 @@ export const photos: Photo[] = [
       shutterSpeed: "25s",
       focalLength: "16mm"
     },
-    collectionIds: ["c7"]
+    collectionIds: ["c7"],
+    aiGenerated: true
   },
 
   // Collection 8: Thunderstorm Gallery (c8)
@@ -553,7 +569,8 @@ export const photos: Photo[] = [
       shutterSpeed: "1/60s",
       focalLength: "35mm"
     },
-    collectionIds: ["c8"]
+    collectionIds: ["c8"],
+    aiGenerated: true
   },
   {
     id: "photo-storm-2",
@@ -578,7 +595,8 @@ export const photos: Photo[] = [
       shutterSpeed: "8s",
       focalLength: "18mm"
     },
-    collectionIds: ["c8"]
+    collectionIds: ["c8"],
+    aiGenerated: true
   },
 
   // Collection 9: Mountain Silhouettes (c9)
@@ -605,7 +623,8 @@ export const photos: Photo[] = [
       shutterSpeed: "12s",
       focalLength: "24mm"
     },
-    collectionIds: ["c9"]
+    collectionIds: ["c9"],
+    aiGenerated: true
   },
   {
     id: "photo-mountain-2",
@@ -630,7 +649,8 @@ export const photos: Photo[] = [
       shutterSpeed: "15s",
       focalLength: "16mm"
     },
-    collectionIds: ["c9"]
+    collectionIds: ["c9"],
+    aiGenerated: true
   }
 ];
 

@@ -15,7 +15,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
   onLike,
   onClick
 }) => {
-  const { id, title, thumbnailSrc, category, photographer, likes } = photo;
+  const { id, title, thumbnailSrc, category, photographer, likes, aiGenerated } = photo;
 
   // Category specific styles/colors matching the design spec
   const categoryPills: Record<string, string> = {
@@ -60,6 +60,16 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
           {getCategoryLabel(category)}
         </span>
       </div>
+
+      {/* AI Generated badge - top right */}
+      {aiGenerated && (
+        <div className="absolute top-4 right-4 z-20">
+          <span className="text-[10px] font-mono font-semibold tracking-wider px-2 py-0.5 rounded-full border border-violet-400/40 bg-violet-500/10 text-violet-300 flex items-center gap-1">
+            <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"/></svg>
+            AI
+          </span>
+        </div>
+      )}
 
       {/* Dark gradient overlay on hover */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 z-10" />
