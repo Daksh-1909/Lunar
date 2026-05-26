@@ -60,9 +60,17 @@ export const Lightbox: React.FC = () => {
     <div className="fixed inset-0 z-50 flex flex-col justify-between bg-black/95 transition-opacity duration-300 animate-in fade-in">
       {/* Top action bar */}
       <div className="w-full flex items-center justify-between p-6 z-10">
-        {/* Left corner: Photo Category */}
-        <div className="text-xs font-mono uppercase tracking-widest text-silver">
-          {lightboxPhoto.category.replace("-", " ")}
+        {/* Left corner: Photo Category + AI Badge */}
+        <div className="flex items-center gap-3">
+          <div className="text-xs font-mono uppercase tracking-widest text-silver">
+            {lightboxPhoto.category.replace("-", " ")}
+          </div>
+          {lightboxPhoto.aiGenerated && (
+            <span className="text-[10px] font-mono font-semibold tracking-wider px-2.5 py-1 rounded-full border border-violet-400/40 bg-violet-500/10 text-violet-300 flex items-center gap-1.5">
+              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"/></svg>
+              AI Generated
+            </span>
+          )}
         </div>
 
         {/* Right corner: Actions */}
