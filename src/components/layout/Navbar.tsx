@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Moon, Menu, X, Search, Heart, User, Compass } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Moon, Menu, X, Heart, User } from "lucide-react";
 import { useGallery } from "../../context/GalleryContext";
-import { OrbitButton } from "../ui/OrbitButton";
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const location = useLocation();
-  const navigate = useNavigate();
   const { likedPhotoIds, setSearchQuery } = useGallery();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
       if (window.scrollY > 44) {
         setScrolled(true);
       } else {
@@ -37,17 +33,6 @@ export const Navbar: React.FC = () => {
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" }
   ];
-  const fadeRange = 150; // pixels of scroll over which it disappears
-  const startFade = 10;  // scroll offset at which it starts fading
-  
-  let opacity = 1;
-  let translateY = 0;
-  
-  if (scrollY > startFade) {
-    const progress = Math.min(1, (scrollY - startFade) / fadeRange);
-    opacity = 1 - progress;
-    translateY = -progress * 48; // slide up to -48px
-  }
 
   return (
     <>
@@ -55,11 +40,6 @@ export const Navbar: React.FC = () => {
         className={`sub-nav-frosted ${
           scrolled ? "border-stardust/60 shadow-xl bg-cosmos/95" : "border-stardust/30"
         }`}
-        style={{
-          opacity,
-          transform: `translateY(${translateY}px)`,
-          pointerEvents: opacity === 0 ? "none" : "auto",
-        }}
       >
         <div className="flex items-center gap-2">
           {/* Logo Crescent Moon */}
@@ -104,14 +84,6 @@ export const Navbar: React.FC = () => {
             <User className="w-[18px] h-[18px] hover:text-white transition-colors cursor-pointer" />
           </div>
 
-          <OrbitButton
-            color="blue"
-            onClick={() => navigate("/gallery")}
-            className="py-2.5 px-6 min-w-[120px]"
-          >
-            <Compass className="w-4 h-4" />
-            Explore
-          </OrbitButton>
         </div>
 
         {/* Mobile controls */}
