@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Moon, Menu, X, Heart, User } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Moon, Menu, X, Heart, User, Compass } from "lucide-react";
 import { useGallery } from "../../context/GalleryContext";
+import { OrbitButton } from "../ui/OrbitButton";
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
   const location = useLocation();
   const { likedPhotoIds, setSearchQuery } = useGallery();
 
@@ -84,6 +86,17 @@ export const Navbar: React.FC = () => {
             <User className="w-[18px] h-[18px] hover:text-white transition-colors cursor-pointer" />
           </div>
 
+          {/* Explore button — hidden on the gallery page */}
+          {!isActive("/gallery") && (
+            <OrbitButton
+              color="blue"
+              onClick={() => navigate("/gallery")}
+              className="py-2.5 px-6 min-w-[120px]"
+            >
+              <Compass className="w-4 h-4" />
+              Explore
+            </OrbitButton>
+          )}
         </div>
 
         {/* Mobile controls */}
