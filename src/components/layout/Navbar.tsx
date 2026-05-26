@@ -38,12 +38,9 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <header
-        className={`sub-nav-frosted ${
-          scrolled ? "border-stardust/60 shadow-xl bg-cosmos/95" : "border-stardust/30"
-        }`}
-      >
-        <div className="flex items-center gap-2">
+      <header className="sub-nav-frosted">
+        {/* Inner content — sits above liquid glass ::before / ::after layers */}
+        <div className="relative z-[2] flex items-center gap-2">
           {/* Logo Crescent Moon */}
           <Link to="/" className="flex items-center gap-2 select-none group">
             <Moon className="w-5 h-5 text-eclipse rotate-[35deg] transition-transform duration-500 group-hover:rotate-[80deg]" />
@@ -54,7 +51,7 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Navigation links - Center */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="relative z-[2] hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -72,7 +69,7 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* Action Button - Right */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="relative z-[2] hidden md:flex items-center gap-6">
           <div className="flex items-center gap-4 text-silver">
             {/* Likes count indicator */}
             <Link to="/gallery" className="relative flex items-center hover:text-white transition-colors">
@@ -100,7 +97,7 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile controls */}
-        <div className="flex items-center md:hidden gap-3">
+        <div className="relative z-[2] flex items-center md:hidden gap-3">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-white hover:text-eclipse transition-colors"
