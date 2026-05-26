@@ -136,12 +136,12 @@ export const HomePage: React.FC = () => {
       const popScale    = 1 + popProgress * 0.06;                     // 1.00→1.06
       const popBright   = 1 + popProgress * 0.12;                     // slight brighten
 
-      // Directly mutate canvas styles — zero React re-renders
+      // Directly mutate canvas styles — canvas stays in background (z-0) always
       const c = canvasRef.current;
       if (c) {
-        c.style.transform        = `scale(${popScale})`;
-        c.style.filter           = `brightness(${popBright})`;
-        c.style.zIndex           = popProgress > 0.05 ? "25" : "0";
+        c.style.transform = `scale(${popScale})`;
+        c.style.filter    = `brightness(${popBright})`;
+        // z-index stays at 0 — page sections with bg-colors sit on top naturally
       }
 
       // Grid SVG fades out as moon pops
