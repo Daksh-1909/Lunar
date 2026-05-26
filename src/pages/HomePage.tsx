@@ -265,48 +265,18 @@ export const HomePage: React.FC = () => {
         ref={sectionRef}
         className="relative w-full h-screen flex flex-col justify-between items-center text-center px-6 overflow-hidden bg-black"
       >
-      {/* ─── Scroll-driven moon pop ───────────────────────────────────────────
-           0 → 120px scroll  : moon scales from 1 → 1.08 and rises to z-20
-           120 → 280px scroll : moon fades out as the next section takes over
-        ──────────────────────────────────────────────────────────────────── */}
-        {(() => {
-          const popStart   = 30;   // px of scroll before pop begins
-          const popPeak    = 140;  // px where scale is maximum
-          const fadeEnd    = 320;  // px where canvas is fully gone
+        {/* Main Interactive Canvas — styles driven by RAF loop, no re-renders */}
+        <canvas
+          ref={canvasRef}
+          className="fixed inset-0 w-full h-full object-cover pointer-events-none"
+          style={{ transformOrigin: "center center", willChange: "transform, opacity, filter" }}
+        />
 
-          // 0..1 — how far into the "pop" phase
-          const popProgress  = Math.min(1, Math.max(0, (scrollY - popStart)  / (popPeak - popStart)));
-          // 0..1 — how far into the "fade" phase
-          const fadeProgress = Math.min(1, Math.max(0, (scrollY - popPeak)   / (fadeEnd  - popPeak)));
-
-          const scale     = 1 + popProgress * 0.09;            // 1.00 → 1.09
-          const zClass    = popProgress > 0.05 ? "z-[25]" : "z-0";
-          const opacity   = 1 - fadeProgress;
-          const brightness = 1 + popProgress * 0.15;           // subtle brighten on pop
-
-          return (
-            <canvas
-              ref={canvasRef}
-              className={`fixed inset-0 w-full h-full object-cover pointer-events-none transition-none ${zClass}`}
-              style={{
-                opacity,
-                transform: `scale(${scale})`,
-                filter: `brightness(${brightness})`,
-                transformOrigin: "center center",
-                willChange: "transform, opacity",
-              }}
-            />
-          );
-        })()
-        }
-
-        {/* Grid Background — recedes as moon pops */}
+        {/* Grid Background — fades as moon pops (opacity driven by RAF loop) */}
         <svg
-          className="absolute inset-0 w-full h-full opacity-10 z-10 pointer-events-none"
-          style={{
-            opacity: Math.max(0, 0.1 - (scrollY / 300) * 0.1),
-            transform: `scale(${1 - Math.min(0.04, scrollY / 3000)})`,
-          }}
+          ref={gridSvgRef}
+          className="absolute inset-0 w-full h-full z-10 pointer-events-none"
+          style={{ opacity: 0.1 }}
         >
           <defs>
             <pattern ref={patternRef} id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
