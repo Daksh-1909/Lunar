@@ -4,7 +4,7 @@ export const photographers: Photographer[] = [
   {
     id: "p1",
     name: "Daksh Patel",
-    avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&auto=format&fit=crop&q=80",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
     bio: "Astrophotographer and celestial tracker specializing in long-exposure lunar phases and solar eclipses. Over a decade capturing the silence of the night sky from Vadodara.",
     location: "Vadodara, Gujarat",
     instagram: "@daksh_patel199",

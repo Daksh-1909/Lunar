@@ -17,6 +17,7 @@ export interface Photo {
   height: number;
   cameraSettings?: CameraSettings;
   collectionIds: string[];
+  aiGenerated?: boolean;
 }
 
 export type PhotoCategory =
