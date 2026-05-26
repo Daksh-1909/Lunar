@@ -188,63 +188,11 @@
 
   /* Custom interactive cursor support */
   .custom-cursor {
-    width: 32px;
-    height: 32px;
-    border: 1px solid rgba(244, 166, 35, 0.4);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
-    mix-blend-mode: difference;
-    hidden: block;
-    display: none;
-  }
-  
-  @media (min-width: 768px) {
-    .custom-cursor {
-      display: block;
-    }
-  }
-
-  .custom-cursor-dot {
-    width: 6px;
-    height: 6px;
-    background-color: #f4a623;
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 10000;
-    top: 0;
-    left: 0;
-    transition: transform 0.2s, background-color 0.2s;
-    display: none;
-  }
-
-  @media (min-width: 768px) {
-    .custom-cursor-dot {
-      display: block;
-    }
+    @apply w-8 h-8 border border-eclipse/40 rounded-full fixed pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 mix-blend-difference hidden md:block;
   }
 
   .custom-cursor-hover {
-    width: 48px;
-    height: 48px;
-    background-color: rgba(244, 166, 35, 0.1);
-    border-color: #f4a623;
-  }
-
-  .custom-cursor-dot-hover {
-    transform: scale(1.5);
-    background-color: #00e5a0; /* Aurora teal for hover states */
-  }
-
-  .custom-cursor-active {
-    width: 24px;
-    height: 24px;
-    background-color: rgba(244, 166, 35, 0.25);
+    @apply scale-[1.8] bg-eclipse/10 border-eclipse;
   }
 
 
