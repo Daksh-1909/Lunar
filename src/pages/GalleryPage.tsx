@@ -34,18 +34,18 @@ export const GalleryPage: React.FC = () => {
   }, [searchParams, setCategory]);
 
   const categories: { label: string; value: PhotoCategory | "all" }[] = [
-    { label: "All", value: "all" },
-    { label: "Red Moon", value: "red-moon" },
-    { label: "Full Moon", value: "full-moon" },
-    { label: "Eclipse", value: "eclipse" },
-    { label: "Nature", value: "nature" },
-    { label: "Night Sky", value: "night-sky" },
-    { label: "Sunrise/Sunset", value: "sunrise-sunset" },
-    { label: "Storms", value: "storms" },
-    { label: "Forests", value: "forests" },
-    { label: "Oceans", value: "oceans" },
-    { label: "Mountains", value: "mountains" },
-    { label: "Auroras", value: "auroras" }
+    { label: "All Rituals", value: "all" },
+    { label: "Blood Moon Hydro-Soak", value: "red-moon" },
+    { label: "Lunar Bath Healing", value: "full-moon" },
+    { label: "Corona Sound Bath", value: "eclipse" },
+    { label: "Zen Earth Meditation", value: "nature" },
+    { label: "Stellar Aromatherapy", value: "night-sky" },
+    { label: "Twilight Yoga Frequencies", value: "sunrise-sunset" },
+    { label: "Atmospheric Steam Rooms", value: "storms" },
+    { label: "Bioluminescent Forest-Bathing", value: "forests" },
+    { label: "Ocean Thalassotherapy", value: "oceans" },
+    { label: "Alpine Thermal Springs", value: "mountains" },
+    { label: "Auroral Light Chromotherapy", value: "auroras" }
   ];
 
   const sortOptions = [
@@ -109,8 +109,22 @@ export const GalleryPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-transparent min-h-screen pt-20 pb-24 px-6 md:px-12 relative overflow-hidden">
-      <SpaceBackground />
+    <div className="w-full bg-transparent min-h-screen pt-24 pb-24 px-6 md:px-12 relative overflow-hidden">
+      <SpaceBackground variant="spa" />
+      
+      {/* Page Header */}
+      <div className="max-w-7xl mx-auto mb-10 text-center md:text-left select-none animate-in fade-in slide-in-from-top duration-500">
+        <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
+          STELLAR OASIS
+        </span>
+        <h1 className="text-4.5xl md:text-6xl font-display font-semibold tracking-wide text-white mt-2">
+          Sanctuary Rituals & Treatments
+        </h1>
+        <p className="text-sm md:text-base text-silver/80 mt-2 max-w-xl font-ui leading-relaxed">
+          Step into our cosmic healing chambers. Choose a celestial treatment pathway below to experience visual alignment frequencies coupled with Solfeggio soundscapes.
+        </p>
+      </div>
+
       {/* 1. FILTER BAR - Sticky under frosted subnav */}
       <div className="max-w-7xl mx-auto flex flex-col gap-6 mb-12 select-none">
         
@@ -119,7 +133,7 @@ export const GalleryPage: React.FC = () => {
           <div className="relative w-full md:max-w-md">
             <input
               type="text"
-              placeholder="Search by title, location, or tag..."
+              placeholder="Search treatments, rituals, or healing zones..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full h-11 bg-cosmos text-white font-ui border border-stardust/60 rounded-full px-5 focus:outline-none focus:border-eclipse focus:ring-1 focus:ring-eclipse/50 text-[14px] transition-all"
@@ -186,10 +200,10 @@ export const GalleryPage: React.FC = () => {
           <div className="w-full py-32 text-center flex flex-col items-center justify-center select-none animate-in fade-in">
             <MoonCircleEmpty />
             <h3 className="text-3xl font-display font-medium text-white mt-6">
-              No Celestial Alignments Found
+              No Wellness Rituals Found
             </h3>
             <p className="text-sm text-silver/60 font-ui mt-2 max-w-sm mx-auto">
-              Our astronomical lens couldn't locate any matching captures. Try relaxing your filters or queries!
+              Our cosmic sanctuary couldn't locate any matching therapies. Try relaxing your filters or queries!
             </p>
             <button
               onClick={() => {

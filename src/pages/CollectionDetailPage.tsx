@@ -26,16 +26,16 @@ export const CollectionDetailPage: React.FC = () => {
   if (!collection) {
     return (
       <div className="w-full bg-transparent min-h-screen py-32 text-center flex flex-col items-center justify-center">
-        <SpaceBackground />
+        <SpaceBackground variant="spa" />
         <h2 className="text-3xl font-display font-medium text-white">
-          Collection Not Found
+          Chamber Not Found
         </h2>
         <p className="text-sm text-silver/60 font-ui mt-2">
-          The requested celestial archive does not exist.
+          The requested wellness chamber does not exist.
         </p>
         <Link to="/collections" className="btn-primary mt-6">
           <ArrowLeft className="w-4 h-4" />
-          Back to Collections
+          Back to Chambers
         </Link>
       </div>
     );
@@ -56,7 +56,7 @@ export const CollectionDetailPage: React.FC = () => {
 
   return (
     <div className="w-full bg-transparent min-h-screen pb-24 overflow-hidden relative">
-      <SpaceBackground />
+      <SpaceBackground variant="spa" />
       {/* 1. COMPONENT HERO BANNER */}
       <section className="relative w-full py-20 md:py-32 px-6 md:px-12 flex items-center justify-center text-center overflow-hidden border-b border-stardust/40">
         <img
@@ -72,7 +72,7 @@ export const CollectionDetailPage: React.FC = () => {
             className="flex items-center gap-2 text-xs font-mono text-eclipse hover:text-eclipse/80 transition-colors mb-6 select-none"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            BACK TO ARCHIVES
+            BACK TO CHAMBERS
           </Link>
 
           <h1 className="text-4xl md:text-6xl font-display font-semibold tracking-wide text-white display-tight">
@@ -102,7 +102,7 @@ export const CollectionDetailPage: React.FC = () => {
           <div className="flex items-center gap-2">
             <Camera className="w-4 h-4 text-eclipse" />
             <span className="font-mono text-xs uppercase tracking-wider text-white">
-              Credited Artists
+              Credited Concierges
             </span>
           </div>
 
@@ -147,7 +147,7 @@ export const CollectionDetailPage: React.FC = () => {
             MORE SERIES
           </span>
           <h2 className="text-3xl font-display text-white mt-2 font-semibold display-tight">
-            Related Archives
+            Related Chambers
           </h2>
         </div>
 

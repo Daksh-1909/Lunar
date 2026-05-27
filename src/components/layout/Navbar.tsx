@@ -28,12 +28,13 @@ export const Navbar: React.FC = () => {
     return location.pathname === path;
   };
 
+  const isHome = location.pathname === "/";
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Collections", path: "/collections" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" }
+    { name: isHome ? "Gallery" : "Spa Sanctuary", path: "/gallery" },
+    { name: isHome ? "Collections" : "Wellness Journeys", path: "/collections" },
+    { name: isHome ? "About" : "Healing Philosophy", path: "/about" },
+    { name: isHome ? "Contact" : "Book a Session", path: "/contact" }
   ];
 
   return (

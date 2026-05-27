@@ -117,8 +117,8 @@ export const ContactPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full bg-transparent min-h-screen py-20 px-6 md:px-12 relative overflow-hidden flex items-center">
-      <SpaceBackground />
+    <div className="w-full bg-transparent min-h-screen py-24 px-6 md:px-12 relative overflow-hidden flex items-center">
+      <SpaceBackground variant="spa" />
       {/* Canvas for success confetti */}
       <canvas
         ref={canvasRef}
@@ -128,16 +128,16 @@ export const ContactPage: React.FC = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 w-full items-start relative z-10">
         
         {/* Left Column: Contact details (Apple surface card) */}
-        <div className="lg:col-span-5 flex flex-col gap-10 select-none">
+        <div className="lg:col-span-5 flex flex-col gap-10 select-none animate-in slide-in-from-left duration-500">
           <div>
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-              REACH OUT
+              RESERVE
             </span>
             <h1 className="text-4xl md:text-5xl font-display font-semibold tracking-wide text-white mt-3 display-tight">
-              Let's Connect
+              Book Your Alignment
             </h1>
             <p className="text-sm text-silver/80 font-ui mt-4 leading-relaxed max-w-sm">
-              Have a galactic capture to submit, a collaboration proposal, or simply want to inquire about fine art licensing? Write to us!
+              Ready to align your spirit with the cosmos? Select your healing treatment, choose a target time, and book your session in our high-end stellar wellness oasis.
             </p>
           </div>
 
@@ -148,10 +148,10 @@ export const ContactPage: React.FC = () => {
                 <MapPin className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">OBSERVATORY ARCHIVES</h4>
+                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">HEALING OASIS RESORT</h4>
                 <p className="text-sm text-silver/80 mt-1 leading-relaxed">
-                  Lunar LLC, <br />
-                  85 Skyview Ridge Road, Atacama, Chile
+                  Lunar Sanctuary, <br />
+                  44 Cosmic Ridge, Vadodara, Gujarat
                 </p>
               </div>
             </div>
@@ -161,9 +161,9 @@ export const ContactPage: React.FC = () => {
                 <Mail className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">EMAIL COMMUNICATION</h4>
+                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">RESERVATION INTAKE</h4>
                 <p className="text-sm text-silver/80 mt-1 hover:text-white transition-colors">
-                  observatory@lunar.com
+                  sanctuary@lunar.spa
                 </p>
               </div>
             </div>
@@ -173,22 +173,22 @@ export const ContactPage: React.FC = () => {
                 <Phone className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">DIRECT HOTLINE</h4>
+                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">ZEN DIRECT LINE</h4>
                 <p className="text-sm text-silver/80 mt-1">
-                  +1 (800) SKY-GLOW
+                  +1 (800) ZEN-GLOW
                 </p>
               </div>
             </div>
           </div>
 
           <div className="pt-6 border-t border-stardust/20 text-xs text-silver/40 leading-relaxed font-mono flex items-center gap-1">
-            <span>Our support coordinates are open 24/7.</span>
+            <span>Our healing chambers are open 24/7 in dynamic rotation.</span>
             <Heart className="w-3 h-3 text-supernova animate-pulse fill-supernova" />
           </div>
         </div>
 
         {/* Right Column: Contact form */}
-        <div className="lg:col-span-7 bg-cosmos/40 backdrop-blur-sm border border-stardust/40 rounded-[28px] p-8 md:p-12 relative">
+        <div className="lg:col-span-7 bg-cosmos/40 backdrop-blur-sm border border-stardust/40 rounded-[28px] p-8 md:p-12 relative animate-in slide-in-from-right duration-500">
           
           {isSuccess ? (
             /* SUCCESS STATE PANEL */
@@ -197,10 +197,10 @@ export const ContactPage: React.FC = () => {
                 <Sparkles className="w-8 h-8" />
               </div>
               <h2 className="text-3xl font-display font-medium text-white">
-                Message Propagated!
+                Booking Transmitted!
               </h2>
               <p className="text-sm text-silver/80 font-ui mt-3 max-w-sm mx-auto leading-relaxed">
-                Thank you, <span className="text-eclipse font-semibold">{formData.name}</span>. Your details have safely traversed the orbit. Our stargazing team will reply within 24 hours.
+                Thank you, <span className="text-eclipse font-semibold">{formData.name}</span>. Your reservation coordinates have entered orbit. Our celestial concierge team will confirm your session via email within 4 hours.
               </p>
               <button
                 onClick={() => {
@@ -209,7 +209,7 @@ export const ContactPage: React.FC = () => {
                 }}
                 className="btn-primary mt-8"
               >
-                Send Another Ingress
+                Reserve Another Chamber
               </button>
             </div>
           ) : (
@@ -219,7 +219,7 @@ export const ContactPage: React.FC = () => {
                 {/* Name */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="font-mono text-[10px] uppercase tracking-wider text-silver/80">
-                    YOUR NAME
+                    YOUR FULL NAME
                   </label>
                   <input
                     type="text"
@@ -252,7 +252,7 @@ export const ContactPage: React.FC = () => {
               {/* Subject Dropdown */}
               <div className="flex flex-col gap-2">
                 <label htmlFor="subject" className="font-mono text-[10px] uppercase tracking-wider text-silver/80">
-                  INQUIRY SUBJECT
+                  SELECT WELLNESS RITUAL
                 </label>
                 <select
                   id="subject"
@@ -261,17 +261,17 @@ export const ContactPage: React.FC = () => {
                   onChange={handleInputChange}
                   className="w-full h-11 bg-void text-white font-ui border border-stardust/60 rounded-full px-5 focus:outline-none focus:border-eclipse cursor-pointer text-[14px]"
                 >
-                  <option value="general">General Inquiry</option>
-                  <option value="submit">Submit Photography</option>
-                  <option value="collaboration">Collaborations & PR</option>
-                  <option value="licensing">Fine Art Licensing</option>
+                  <option value="general">Lunar Sound Bath Alignment</option>
+                  <option value="submit">Solfeggio Aromatherapy Soak</option>
+                  <option value="collaboration">Total Eclipse Thermal Springs</option>
+                  <option value="licensing">Bioluminescent Deep Body Massage</option>
                 </select>
               </div>
 
               {/* Message */}
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="font-mono text-[10px] uppercase tracking-wider text-silver/80">
-                  YOUR MESSAGE
+                  RESERVATION NOTES & SPECIAL REQUESTS (E.G., DIETARY OR TEMPERATURE PREFERENCES)
                 </label>
                 <textarea
                   id="message"
@@ -294,12 +294,12 @@ export const ContactPage: React.FC = () => {
                   /* Loading Spinner */
                   <div className="flex items-center justify-center gap-2">
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    <span>Propagating...</span>
+                    <span>Transmitting Reservation...</span>
                   </div>
                 ) : (
                   <>
                     <Send className="w-4 h-4" />
-                    <span>Transmit Message</span>
+                    <span>Request Session Booking</span>
                   </>
                 )}
               </button>

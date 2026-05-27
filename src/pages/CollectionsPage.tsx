@@ -24,7 +24,7 @@ export const CollectionsPage: React.FC = () => {
 
   return (
     <div className="w-full bg-transparent min-h-screen pb-24 overflow-hidden">
-      <SpaceBackground />
+      <SpaceBackground variant="spa" />
       {/* 1. HERO BANNER - Slideshow Carousel */}
       <section className="relative w-full h-[50vh] min-h-[360px] flex items-center justify-center text-center px-6 overflow-hidden select-none">
         
@@ -50,14 +50,14 @@ export const CollectionsPage: React.FC = () => {
         {/* Hero content */}
         <div className="max-w-3xl mx-auto z-10 animate-in fade-in zoom-in-95 duration-500">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-            MUSEUM ARCHIVES
+            WELLNESS CHAMBERS
           </span>
           <h1 className="text-5xl md:text-6xl font-display font-semibold tracking-wide text-white mt-3 display-tight">
-            Curated Collections
+            Cosmic Healing Chambers
           </h1>
           <div className="w-12 h-[1.5px] bg-eclipse mx-auto mt-4" />
           <p className="text-sm md:text-base text-silver/80 font-ui max-w-lg mx-auto mt-4 leading-relaxed body-apple">
-            Handpicked astronomical and terrestrial series capturing deep space dynamics, atmospheric forces, and silent forest floors.
+            Explore our curated selection of stellar wellness zones designed to harmonize the senses and align your soul with the slow, soothing frequencies of the cosmos.
           </p>
         </div>
       </section>
@@ -110,7 +110,7 @@ export const CollectionsPage: React.FC = () => {
 
                   {/* CTA link */}
                   <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-primary-on-dark mt-2 select-none">
-                    <span>VIEW PORTFOLIO</span>
+                    <span>EXPLORE JOURNEY</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
