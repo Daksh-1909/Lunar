@@ -34,18 +34,18 @@ export const GalleryPage: React.FC = () => {
   }, [searchParams, setCategory]);
 
   const categories: { label: string; value: PhotoCategory | "all" }[] = [
-    { label: "All Rituals", value: "all" },
-    { label: "Blood Moon Hydro-Soak", value: "red-moon" },
-    { label: "Lunar Bath Healing", value: "full-moon" },
-    { label: "Corona Sound Bath", value: "eclipse" },
-    { label: "Zen Earth Meditation", value: "nature" },
-    { label: "Stellar Aromatherapy", value: "night-sky" },
-    { label: "Twilight Yoga Frequencies", value: "sunrise-sunset" },
-    { label: "Atmospheric Steam Rooms", value: "storms" },
-    { label: "Bioluminescent Forest-Bathing", value: "forests" },
-    { label: "Ocean Thalassotherapy", value: "oceans" },
-    { label: "Alpine Thermal Springs", value: "mountains" },
-    { label: "Auroral Light Chromotherapy", value: "auroras" }
+    { label: "All Captures", value: "all" },
+    { label: "Red Moon", value: "red-moon" },
+    { label: "Full Moon", value: "full-moon" },
+    { label: "Eclipse", value: "eclipse" },
+    { label: "Nature Scenes", value: "nature" },
+    { label: "Night Sky", value: "night-sky" },
+    { label: "Sunrise/Sunset", value: "sunrise-sunset" },
+    { label: "Atmospheric Storms", value: "storms" },
+    { label: "Nocturnal Forests", value: "forests" },
+    { label: "Bioluminescent Oceans", value: "oceans" },
+    { label: "Alpine Peaks", value: "mountains" },
+    { label: "Northern Auroras", value: "auroras" }
   ];
 
   const sortOptions = [
@@ -115,13 +115,13 @@ export const GalleryPage: React.FC = () => {
       {/* Page Header */}
       <div className="max-w-7xl mx-auto mb-10 text-center md:text-left select-none animate-in fade-in slide-in-from-top duration-500">
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-          STELLAR OASIS
+          DEEP SPACE OBSERVATORY
         </span>
         <h1 className="text-4.5xl md:text-6xl font-display font-semibold tracking-wide text-white mt-2">
-          Sanctuary Rituals & Treatments
+          Space Sanctuary & Cosmic Gallery
         </h1>
         <p className="text-sm md:text-base text-silver/80 mt-2 max-w-xl font-ui leading-relaxed">
-          Step into our cosmic healing chambers. Choose a celestial treatment pathway below to experience visual alignment frequencies coupled with Solfeggio soundscapes.
+          Step into our deep-space observatory. Choose a celestial pathway below to experience high-fidelity cosmic visual alignments coupled with background space resonance drones.
         </p>
       </div>
 
@@ -133,7 +133,7 @@ export const GalleryPage: React.FC = () => {
           <div className="relative w-full md:max-w-md">
             <input
               type="text"
-              placeholder="Search treatments, rituals, or healing zones..."
+              placeholder="Search space captures, celestial objects, or constellations..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full h-11 bg-cosmos text-white font-ui border border-stardust/60 rounded-full px-5 focus:outline-none focus:border-eclipse focus:ring-1 focus:ring-eclipse/50 text-[14px] transition-all"
