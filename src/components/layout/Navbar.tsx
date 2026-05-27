@@ -45,7 +45,7 @@ export const Navbar: React.FC = () => {
           {/* Logo Custom Upscaled Icon */}
           <Link to="/" className="flex items-center gap-2.5 select-none group">
             <img 
-              src="/logo.ico" 
+              src="/logo.png" 
               alt="Lunar Logo" 
               className="w-6 h-6 object-contain transition-transform duration-500 group-hover:scale-110" 
             />
