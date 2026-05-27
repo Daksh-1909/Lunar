@@ -61,12 +61,12 @@
     z-index: 40;
     border-radius: 9999px;
 
-    /* User's Liquid Glass Strong Style */
+    /* User's Liquid Glass Strong Style with optimized blur to show the moon background */
     background: rgba(255, 255, 255, 0.01);
     background-blend-mode: luminosity;
 
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 
     border: none;
     position: relative;
