@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Play, Pause, Volume2, Sparkles, Compass } from "lucide-react";
 
-export const CosmicSpaPlayer: React.FC = () => {
+export const CosmicSpacePlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [frequencyMode, setFrequencyMode] = useState<"528" | "432">("528");
   const [volume, setVolume] = useState(0.25);
@@ -21,7 +21,7 @@ export const CosmicSpaPlayer: React.FC = () => {
   const lfoRef = useRef<OscillatorNode | null>(null);
   const lfoGainRef = useRef<GainNode | null>(null);
 
-  // Initialize and play synthesized Solfeggio soundscape
+  // Initialize and play synthesized Space ambient drone
   const startSoundscape = () => {
     try {
       // Create Audio Context if not exists
@@ -43,7 +43,7 @@ export const CosmicSpaPlayer: React.FC = () => {
       masterGain.connect(ctx.destination);
       gainNodeRef.current = masterGain;
 
-      // 2. BIQUAD LOWPASS FILTER (creates deep, warm, velvety spa drone)
+      // 2. BIQUAD LOWPASS FILTER (creates deep, warm, velvety space drone)
       const lowpassFilter = ctx.createBiquadFilter();
       lowpassFilter.type = "lowpass";
       lowpassFilter.frequency.setValueAtTime(320, ctx.currentTime);
@@ -188,8 +188,8 @@ export const CosmicSpaPlayer: React.FC = () => {
             <div className="flex items-center gap-2">
               <Compass className="w-5 h-5 text-eclipse rotate-[35deg]" />
               <div>
-                <h3 className="font-display font-medium text-[16px] text-white">Stellar Sanctuary Player</h3>
-                <p className="font-mono text-[9px] text-silver/60">CELESTIAL RESONA-SOUNDS</p>
+                <h3 className="font-display font-medium text-[16px] text-white">Space Sanctuary Player</h3>
+                <p className="font-mono text-[9px] text-silver/60">CELESTIAL AMBIENT DRONE</p>
               </div>
             </div>
             <button
@@ -200,18 +200,18 @@ export const CosmicSpaPlayer: React.FC = () => {
             </button>
           </div>
 
-          {/* Healing Solfeggio details */}
+          {/* Space frequency details */}
           <div className="bg-void/40 border border-stardust/30 rounded-xl p-3 mb-4 text-center">
             <span className="font-mono text-[8px] uppercase text-eclipse tracking-widest font-bold">
               ACTIVE VIBRATION
             </span>
             <h4 className="font-display text-lg text-white mt-0.5">
-              {frequencyMode === "528" ? "528Hz Solfeggio" : "432Hz Cosmic Harmony"}
+              {frequencyMode === "528" ? "528Hz Solar Wind" : "432Hz Cosmic Resonance"}
             </h4>
             <p className="text-[10px] text-silver/80 mt-1 font-ui leading-relaxed">
               {frequencyMode === "528"
-                ? "Solfeggio frequency associated with DNA repair, soothing mental blockages, and cell rejuvenation."
-                : "A natural organic tuning frequency synced to the cosmic math, bringing absolute zen and soul alignment."}
+                ? "Solfeggio frequency associated with cellular harmony, deep meditation, and soothing background solar resonance."
+                : "A natural frequency representing cosmic math, providing an atmospheric soundscape for deep space exploration."}
             </p>
           </div>
 
@@ -318,7 +318,7 @@ export const CosmicSpaPlayer: React.FC = () => {
 
           <div className="relative z-10 text-left shrink-0">
             <span className="block font-display font-medium text-xs leading-none text-white group-hover:text-eclipse transition-colors">
-              {isPlaying ? "Spa Resonance Active" : "Calming Soundscape"}
+              {isPlaying ? "Space Resonance Active" : "Cosmic Ambience"}
             </span>
             <span className="block font-mono text-[8px] leading-none text-silver/60 mt-1 uppercase tracking-widest">
               {isPlaying ? `${frequencyMode}Hz SOLFEGGIO` : "synthesize 528hz"}
@@ -330,4 +330,4 @@ export const CosmicSpaPlayer: React.FC = () => {
   );
 };
 
-export default CosmicSpaPlayer;
+export default CosmicSpacePlayer;

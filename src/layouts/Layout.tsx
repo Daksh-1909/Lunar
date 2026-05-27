@@ -4,7 +4,7 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import { Lightbox } from "../components/ui/Lightbox";
 import CosmicCursor from "../components/ui/CosmicCursor";
-import CosmicSpaPlayer from "../components/ui/CosmicSpaPlayer";
+import CosmicSpacePlayer from "../components/ui/CosmicSpacePlayer";
 
 const Layout: React.FC = () => {
   const location = useLocation();
@@ -26,8 +26,8 @@ const Layout: React.FC = () => {
         <Outlet />
       </main>
 
-      {/* Floating Cosmic Spa Player (Internal Pages Only) */}
-      {isNotHome && <CosmicSpaPlayer />}
+      {/* Floating Cosmic Space Player (Internal Pages Only) */}
+      {isNotHome && <CosmicSpacePlayer />}
 
       {/* Footer Pinned */}
       <Footer />

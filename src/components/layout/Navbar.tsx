@@ -31,10 +31,10 @@ export const Navbar: React.FC = () => {
   const isHome = location.pathname === "/";
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: isHome ? "Gallery" : "Spa Sanctuary", path: "/gallery" },
-    { name: isHome ? "Collections" : "Wellness Journeys", path: "/collections" },
-    { name: isHome ? "About" : "Healing Philosophy", path: "/about" },
-    { name: isHome ? "Contact" : "Book a Session", path: "/contact" }
+    { name: isHome ? "Gallery" : "Space Sanctuary", path: "/gallery" },
+    { name: isHome ? "Collections" : "Space Journeys", path: "/collections" },
+    { name: isHome ? "About" : "Cosmic Vision", path: "/about" },
+    { name: isHome ? "Contact" : "Transmit Signal", path: "/contact" }
   ];
 
   return (
@@ -42,9 +42,13 @@ export const Navbar: React.FC = () => {
       <header className="sub-nav-frosted">
         {/* Inner content — sits above liquid glass ::before / ::after layers */}
         <div className="relative z-[2] flex items-center gap-2">
-          {/* Logo Crescent Moon */}
-          <Link to="/" className="flex items-center gap-2 select-none group">
-            <Moon className="w-5 h-5 text-eclipse rotate-[35deg] transition-transform duration-500 group-hover:rotate-[80deg]" />
+          {/* Logo Custom Upscaled Icon */}
+          <Link to="/" className="flex items-center gap-2.5 select-none group">
+            <img 
+              src="/logo.ico" 
+              alt="Lunar Logo" 
+              className="w-6 h-6 object-contain transition-transform duration-500 group-hover:scale-110" 
+            />
             <span className="font-display text-2xl font-medium tracking-wide text-white bg-gradient-to-r from-moonbeam to-eclipse bg-clip-text text-transparent">
               Lunar
             </span>
