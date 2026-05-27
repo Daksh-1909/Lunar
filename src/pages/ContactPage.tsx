@@ -131,13 +131,13 @@ export const ContactPage: React.FC = () => {
         <div className="lg:col-span-5 flex flex-col gap-10 select-none animate-in slide-in-from-left duration-500">
           <div>
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-              RESERVE
+              STELLAR SIGNAL
             </span>
             <h1 className="text-4xl md:text-5xl font-display font-semibold tracking-wide text-white mt-3 display-tight">
-              Book Your Alignment
+              Transmit Coordinates
             </h1>
             <p className="text-sm text-silver/80 font-ui mt-4 leading-relaxed max-w-sm">
-              Ready to align your spirit with the cosmos? Select your healing treatment, choose a target time, and book your session in our high-end stellar wellness oasis.
+              Have a galactic capture to submit, a collaboration proposal, or simply want to inquire about fine art licensing? Transmit your signal to our deep-space communications array.
             </p>
           </div>
 
@@ -148,10 +148,10 @@ export const ContactPage: React.FC = () => {
                 <MapPin className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">HEALING OASIS RESORT</h4>
+                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">OBSERVATORY HEADQUARTERS</h4>
                 <p className="text-sm text-silver/80 mt-1 leading-relaxed">
-                  Lunar Sanctuary, <br />
-                  44 Cosmic Ridge, Vadodara, Gujarat
+                  Lunar Observatory, <br />
+                  85 Skyview Ridge Road, Atacama, Chile
                 </p>
               </div>
             </div>
@@ -161,9 +161,9 @@ export const ContactPage: React.FC = () => {
                 <Mail className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">RESERVATION INTAKE</h4>
+                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">SIGNAL COMMUNICATIONS</h4>
                 <p className="text-sm text-silver/80 mt-1 hover:text-white transition-colors">
-                  sanctuary@lunar.spa
+                  observatory@lunar.com
                 </p>
               </div>
             </div>
@@ -173,16 +173,16 @@ export const ContactPage: React.FC = () => {
                 <Phone className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">ZEN DIRECT LINE</h4>
+                <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">COMMUNICATIONS HOTLINE</h4>
                 <p className="text-sm text-silver/80 mt-1">
-                  +1 (800) ZEN-GLOW
+                  +1 (800) SKY-GLOW
                 </p>
               </div>
             </div>
           </div>
 
           <div className="pt-6 border-t border-stardust/20 text-xs text-silver/40 leading-relaxed font-mono flex items-center gap-1">
-            <span>Our healing chambers are open 24/7 in dynamic rotation.</span>
+            <span>Our support and reception array is active 24/7.</span>
             <Heart className="w-3 h-3 text-supernova animate-pulse fill-supernova" />
           </div>
         </div>
@@ -197,10 +197,10 @@ export const ContactPage: React.FC = () => {
                 <Sparkles className="w-8 h-8" />
               </div>
               <h2 className="text-3xl font-display font-medium text-white">
-                Booking Transmitted!
+                Transmission Dispatched!
               </h2>
               <p className="text-sm text-silver/80 font-ui mt-3 max-w-sm mx-auto leading-relaxed">
-                Thank you, <span className="text-eclipse font-semibold">{formData.name}</span>. Your reservation coordinates have entered orbit. Our celestial concierge team will confirm your session via email within 4 hours.
+                Thank you, <span className="text-eclipse font-semibold">{formData.name}</span>. Your details have safely bypassed atmospheric interference. Our observatory crew will reply within 24 hours.
               </p>
               <button
                 onClick={() => {
@@ -209,7 +209,7 @@ export const ContactPage: React.FC = () => {
                 }}
                 className="btn-primary mt-8"
               >
-                Reserve Another Chamber
+                Send Another Transmission
               </button>
             </div>
           ) : (
@@ -252,7 +252,7 @@ export const ContactPage: React.FC = () => {
               {/* Subject Dropdown */}
               <div className="flex flex-col gap-2">
                 <label htmlFor="subject" className="font-mono text-[10px] uppercase tracking-wider text-silver/80">
-                  SELECT WELLNESS RITUAL
+                  TRANSMISSION SUBJECT
                 </label>
                 <select
                   id="subject"
@@ -261,17 +261,17 @@ export const ContactPage: React.FC = () => {
                   onChange={handleInputChange}
                   className="w-full h-11 bg-void text-white font-ui border border-stardust/60 rounded-full px-5 focus:outline-none focus:border-eclipse cursor-pointer text-[14px]"
                 >
-                  <option value="general">Lunar Sound Bath Alignment</option>
-                  <option value="submit">Solfeggio Aromatherapy Soak</option>
-                  <option value="collaboration">Total Eclipse Thermal Springs</option>
-                  <option value="licensing">Bioluminescent Deep Body Massage</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="submit">Submit Astrophotography</option>
+                  <option value="collaboration">Observatory Collaboration</option>
+                  <option value="licensing">Fine Art Licensing</option>
                 </select>
               </div>
 
               {/* Message */}
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="font-mono text-[10px] uppercase tracking-wider text-silver/80">
-                  RESERVATION NOTES & SPECIAL REQUESTS (E.G., DIETARY OR TEMPERATURE PREFERENCES)
+                  MESSAGE TRANSMISSION CONTENTS
                 </label>
                 <textarea
                   id="message"
@@ -294,12 +294,12 @@ export const ContactPage: React.FC = () => {
                   /* Loading Spinner */
                   <div className="flex items-center justify-center gap-2">
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    <span>Transmitting Reservation...</span>
+                    <span>Broadcasting Signal...</span>
                   </div>
                 ) : (
                   <>
                     <Send className="w-4 h-4" />
-                    <span>Request Session Booking</span>
+                    <span>Transmit Space Signal</span>
                   </>
                 )}
               </button>
