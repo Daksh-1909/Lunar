@@ -50,14 +50,14 @@ export const CollectionsPage: React.FC = () => {
         {/* Hero content */}
         <div className="max-w-3xl mx-auto z-10 animate-in fade-in zoom-in-95 duration-500">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-            WELLNESS CHAMBERS
+            SPACE JOURNEYS
           </span>
           <h1 className="text-5xl md:text-6xl font-display font-semibold tracking-wide text-white mt-3 display-tight">
-            Cosmic Healing Chambers
+            Curated Space Collections
           </h1>
           <div className="w-12 h-[1.5px] bg-eclipse mx-auto mt-4" />
           <p className="text-sm md:text-base text-silver/80 font-ui max-w-lg mx-auto mt-4 leading-relaxed body-apple">
-            Explore our curated selection of stellar wellness zones designed to harmonize the senses and align your soul with the slow, soothing frequencies of the cosmos.
+            Explore our curated selection of deep-space and terrestrial series capturing solar totality flares, deep space nebulas, and silent forest floors.
           </p>
         </div>
       </section>

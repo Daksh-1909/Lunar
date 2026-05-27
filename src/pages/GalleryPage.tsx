@@ -200,10 +200,10 @@ export const GalleryPage: React.FC = () => {
           <div className="w-full py-32 text-center flex flex-col items-center justify-center select-none animate-in fade-in">
             <MoonCircleEmpty />
             <h3 className="text-3xl font-display font-medium text-white mt-6">
-              No Wellness Rituals Found
+              No Space Alignments Found
             </h3>
             <p className="text-sm text-silver/60 font-ui mt-2 max-w-sm mx-auto">
-              Our cosmic sanctuary couldn't locate any matching therapies. Try relaxing your filters or queries!
+              Our deep-space observatory couldn't locate any matching captures. Try relaxing your filters or queries!
             </p>
             <button
               onClick={() => {
