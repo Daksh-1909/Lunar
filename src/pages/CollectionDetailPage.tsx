@@ -28,14 +28,14 @@ export const CollectionDetailPage: React.FC = () => {
       <div className="w-full bg-transparent min-h-screen py-32 text-center flex flex-col items-center justify-center">
         <SpaceBackground variant="spa" />
         <h2 className="text-3xl font-display font-medium text-white">
-          Chamber Not Found
+          Collection Not Found
         </h2>
         <p className="text-sm text-silver/60 font-ui mt-2">
-          The requested wellness chamber does not exist.
+          The requested celestial archive does not exist.
         </p>
         <Link to="/collections" className="btn-primary mt-6">
           <ArrowLeft className="w-4 h-4" />
-          Back to Chambers
+          Back to Collections
         </Link>
       </div>
     );
@@ -72,7 +72,7 @@ export const CollectionDetailPage: React.FC = () => {
             className="flex items-center gap-2 text-xs font-mono text-eclipse hover:text-eclipse/80 transition-colors mb-6 select-none"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            BACK TO CHAMBERS
+            BACK TO COLLECTIONS
           </Link>
 
           <h1 className="text-4xl md:text-6xl font-display font-semibold tracking-wide text-white display-tight">
@@ -102,7 +102,7 @@ export const CollectionDetailPage: React.FC = () => {
           <div className="flex items-center gap-2">
             <Camera className="w-4 h-4 text-eclipse" />
             <span className="font-mono text-xs uppercase tracking-wider text-white">
-              Credited Concierges
+              Credited Artists
             </span>
           </div>
 
@@ -147,7 +147,7 @@ export const CollectionDetailPage: React.FC = () => {
             MORE SERIES
           </span>
           <h2 className="text-3xl font-display text-white mt-2 font-semibold display-tight">
-            Related Chambers
+            Related Collections
           </h2>
         </div>
 

@@ -7,23 +7,23 @@ export const AboutPage: React.FC = () => {
   const milestones = [
     {
       year: "2023",
-      title: "First Sound Bath Expedition",
-      desc: "Opening of our first auroral sound bath and chromotherapy chamber in Iceland, blending solar wind harmonics with physical relaxation."
+      title: "First Eclipse Expedition",
+      desc: "Four telescopes, two astrophotographers, and one perfect sky in Western Australia capturing the rare hybrid solar alignment."
     },
     {
       year: "2024",
-      title: "Totality Steam Alignment",
-      desc: "Establishing our Solar Corona Steam Room and hot spring chambers, syncing bio-relaxation cycles to eclipse alignments."
+      title: "Great American Totality",
+      desc: "Expanded team tracking the eclipse path from Texas to Maine, generating over 5,000 extreme-resolution RAW canvases."
     },
     {
       year: "2025",
-      title: "Launch of the Digital Sanctuary",
-      desc: "Creating Lunar's interactive digital oasis, cataloging high-fidelity healing visual frequencies and solfeggio pads for remote therapy."
+      title: "Launch of Lunar",
+      desc: "Inception of our dark digital museum to catalog these rare visual alignment milestones for students and collectors worldwide."
     },
     {
       year: "2026",
-      title: "Astrophotography Aromatherapy",
-      desc: "Partnering with archival print labs and cosmic aromatherapists to offer physical light-therapy panels and matching cosmic mist releases."
+      title: "Fine Art Printing & AR",
+      desc: "Partnering with premium archival laboratories to introduce silver halide physical prints and immersive cosmic view apps."
     }
   ];
 
@@ -40,17 +40,17 @@ export const AboutPage: React.FC = () => {
 
         <div className="max-w-4xl mx-auto z-10 flex flex-col items-center select-none animate-in fade-in slide-in-from-top duration-500">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-            SANCTUARY MANIFESTO
+            OBSERVATORY MANIFESTO
           </span>
           
           <h1 className="text-5xl md:text-7xl font-display font-semibold tracking-wide text-white mt-4 display-tight">
-            Healing Philosophy
+            Our Mission
           </h1>
           
           <div className="w-12 h-[1.5px] bg-eclipse mx-auto mt-4" />
 
           <p className="text-2xl md:text-3xl font-display font-light italic text-silver/90 max-w-3xl mx-auto mt-8 leading-relaxed">
-            "Lunar exists as a cosmic sanctuary designed to heal the modern soul. We marry the serene visual scale of astrophotography with the art of stellar relaxation to align your spirit with the universe."
+            "Lunar exists to celebrate the impossible beauty of our natural world — from the craters of the moon to the canopy of ancient forests."
           </p>
         </div>
       </section>
