@@ -47,12 +47,12 @@ export const CosmicCursor: React.FC<CosmicCursorProps> = ({
     const CFG = useRef({
         lerpSpeed:      0.10,      // Aether Glide elastic LERP
         baseScale:      0.65,      // Base scale modifier
-        rayLength:      52,        // Standard ray length
-        rayWidth:       2.2,       // Standard broad ray width for contrast
+        rayLength:      30,        // Reduced standard ray length for smaller cursor
+        rayWidth:       1.6,       // Reduced standard ray width
         diagModifier:   0.55,      // Diagonal rays shrunk proportionally to 55%
         diagWidthMod:   0.78,
-        glowRadius:     52,        // Nebula casing backing glow radius
-        coreRadius:     9.5,
+        glowRadius:     32,        // Reduced nebula casing backing glow radius
+        coreRadius:     6.5,       // Reduced core radius
         pulseSpeed:     0.002,     // Breathing core breathing frequency
         rotSpeed:       0.00015,   // Slow base continuous rotation angle speed
         hoverScale:     1.25,      // Scale up by 20% - 30%
@@ -472,8 +472,10 @@ export const CosmicCursor: React.FC<CosmicCursorProps> = ({
         const targetRotExtra = isHovering.current ? cfg.hoverRotExtra : 0;
         ctx.rotate(rotation.current + hoverFactor.current * targetRotExtra);
 
-        const L  = cfg.rayLength * S * dpr;
-        const W  = cfg.rayWidth  * S * dpr * (1 + hoverFactor.current * 0.25);
+        // Speed-adaptive stretching: spikes elongate and get thinner as mouse speed increases
+        const speedScaleFactor = 1 + Math.min(1.2, moveSpeed * 0.025);
+        const L  = cfg.rayLength * S * dpr * speedScaleFactor;
+        const W  = cfg.rayWidth  * S * dpr * (1 + hoverFactor.current * 0.25) / Math.sqrt(speedScaleFactor);
         const DL = L * cfg.diagModifier;
         const DW = W * cfg.diagWidthMod;
 
