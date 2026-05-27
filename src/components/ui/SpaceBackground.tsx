@@ -51,6 +51,7 @@ interface SpaceBackgroundProps {
     starCount?: number;
     nebulaCount?: number;
     interactive?: boolean;
+    variant?: 'default' | 'spa';
 }
 
 export const SpaceBackground: React.FC<SpaceBackgroundProps> = ({
@@ -58,6 +59,7 @@ export const SpaceBackground: React.FC<SpaceBackgroundProps> = ({
     starCount = 400,
     nebulaCount = 6,
     interactive = true,
+    variant = 'default',
 }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const mouse = useRef({ x: 0, y: 0 });
@@ -69,12 +71,19 @@ export const SpaceBackground: React.FC<SpaceBackgroundProps> = ({
     const rafId = useRef<number>(0);
 
     const starColors = ['#FFFFFF', '#FFE9D2', '#D2EAFF', '#FFD2D2', '#FFF4EA'];
-    const nebulaColors = [
-        'rgba(147, 51, 234, 0.12)', // Purple
-        'rgba(79, 70, 229, 0.12)',  // Indigo
-        'rgba(219, 39, 119, 0.1)',   // Pink
-        'rgba(37, 99, 235, 0.1)',    // Blue
-    ];
+    const nebulaColors = variant === 'spa'
+        ? [
+            'rgba(168, 85, 247, 0.14)', // Healing Lavender Purple
+            'rgba(16, 185, 129, 0.11)',  // Calming Sage Green
+            'rgba(99, 102, 241, 0.10)',  // Celestial Indigo Blue
+            'rgba(6, 182, 212, 0.10)',   // Serene Cyan
+          ]
+        : [
+            'rgba(147, 51, 234, 0.12)', // Purple
+            'rgba(79, 70, 229, 0.12)',  // Indigo
+            'rgba(219, 39, 119, 0.1)',   // Pink
+            'rgba(37, 99, 235, 0.1)',    // Blue
+          ];
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -143,7 +152,7 @@ export const SpaceBackground: React.FC<SpaceBackgroundProps> = ({
                 radius: Math.random() * (width * 0.45) + (width * 0.2),
                 color: nebulaColors[Math.floor(Math.random() * nebulaColors.length)],
                 angle: Math.random() * Math.PI * 2,
-                speed: (Math.random() - 0.5) * 0.0005,
+                speed: (Math.random() - 0.5) * (variant === 'spa' ? 0.0002 : 0.0005),
             }));
 
             shootingStars.current = Array.from({ length: 3 }, () => ({
@@ -290,8 +299,9 @@ export const SpaceBackground: React.FC<SpaceBackgroundProps> = ({
 
             ctx.globalCompositeOperation = 'source-over';
             stars.current.forEach(star => {
-                star.y -= (star.layer + 1) * 0.02;
-                star.x -= (star.layer + 1) * 0.01;
+                const driftSpeedMultiplier = variant === 'spa' ? 0.4 : 1.0;
+                star.y -= (star.layer + 1) * 0.02 * driftSpeedMultiplier;
+                star.x -= (star.layer + 1) * 0.01 * driftSpeedMultiplier;
 
                 if (star.y < -20) star.y = height + 20;
                 if (star.x < -20) star.x = width + 20;
