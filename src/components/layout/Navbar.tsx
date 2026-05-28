@@ -40,9 +40,10 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <header className="sub-nav-frosted">
-        <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12">
-          {/* Logo Custom Upscaled Icon */}
+        <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 h-full">
+          {/* Inner content — sits above liquid glass ::before / ::after layers */}
           <div className="relative z-[2] flex items-center gap-2">
+            {/* Logo Custom Upscaled Icon */}
             <Link to="/" className="flex items-center gap-2.5 select-none group">
               <img 
                 src="/logo.png" 
