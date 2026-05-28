@@ -6,6 +6,7 @@ import { AnimatedCounter } from "../components/ui/AnimatedCounter";
 import { photos, collections } from "../data/mockData";
 import { useGallery } from "../context/GalleryContext";
 import { OrbitButton } from "../components/ui/OrbitButton";
+import { ParticleWrapper } from "../components/ui/ParticleWrapper";
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -337,178 +338,186 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 2. FEATURED CATEGORIES SECTION - Void canvas */}
-      <section className="w-full bg-void py-24 px-6 md:px-12 border-t border-stardust/40 z-10 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-              CURATED CHASSIS
-            </span>
-            <h2 className="text-4xl md:text-5xl font-display text-white mt-3 font-semibold display-tight">
-              Discover Our Collections
-            </h2>
-            <div className="w-12 h-[1px] bg-stardust mx-auto mt-4" />
-          </div>
+      <ParticleWrapper id="home-categories">
+        <section className="w-full bg-void py-24 px-6 md:px-12 border-t border-stardust/40 z-10 relative">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
+                CURATED CHASSIS
+              </span>
+              <h2 className="text-4xl md:text-5xl font-display text-white mt-3 font-semibold display-tight">
+                Discover Our Collections
+              </h2>
+              <div className="w-12 h-[1px] bg-stardust mx-auto mt-4" />
+            </div>
 
-          {/* 2x2 grid category layout - Apple Tiles */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {categories.map((cat, idx) => (
-              <Link
-                key={idx}
-                to={cat.path}
-                className="group relative h-[360px] rounded-[18px] overflow-hidden border border-stardust/40 bg-cosmos flex flex-col justify-end p-8 transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-black/60 cursor-pointer"
-              >
-                {/* Image underlay */}
-                <img
-                  src={cat.image}
-                  alt={cat.title}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-[1.05] transition-transform duration-700 ease-out"
-                />
+            {/* 2x2 grid category layout - Apple Tiles */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {categories.map((cat, idx) => (
+                <Link
+                  key={idx}
+                  to={cat.path}
+                  className="group relative h-[360px] rounded-[18px] overflow-hidden border border-stardust/40 bg-cosmos flex flex-col justify-end p-8 transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-black/60 cursor-pointer"
+                >
+                  {/* Image underlay */}
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-[1.05] transition-transform duration-700 ease-out"
+                  />
 
-                {/* Dark bottom gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                  {/* Dark bottom gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
 
-                {/* Count Badge top-right */}
-                <div className="absolute top-6 right-6 z-10">
-                  <span className={`font-mono text-xs font-semibold px-3 py-1 rounded-full ${cat.badgeColor}`}>
-                    {cat.count} Series
-                  </span>
-                </div>
-
-                {/* Category Titles info */}
-                <div className="relative z-10 translate-y-[10px] group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-3xl font-display font-medium text-white mb-2 leading-none">
-                    {cat.title}
-                  </h3>
-                  <p className="text-sm text-silver/80 font-ui leading-relaxed max-w-sm">
-                    {cat.desc}
-                  </p>
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-eclipse mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span>ENTER CHANNELS</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                  {/* Count Badge top-right */}
+                  <div className="absolute top-6 right-6 z-10">
+                    <span className={`font-mono text-xs font-semibold px-3 py-1 rounded-full ${cat.badgeColor}`}>
+                      {cat.count} Series
+                    </span>
                   </div>
-                </div>
-              </Link>
-            ))}
+
+                  {/* Category Titles info */}
+                  <div className="relative z-10 translate-y-[10px] group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-3xl font-display font-medium text-white mb-2 leading-none">
+                      {cat.title}
+                    </h3>
+                    <p className="text-sm text-silver/80 font-ui leading-relaxed max-w-sm">
+                      {cat.desc}
+                    </p>
+                    <div className="flex items-center gap-1.5 text-xs font-mono text-eclipse mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span>ENTER CHANNELS</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ParticleWrapper>
 
       {/* 3. STATS BAR SECTION - Cosmic luxury banner */}
-      <section className="w-full bg-cosmos border-y border-stardust/40 py-16 px-6 md:px-12 z-10 relative">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { value: 2400, suffix: "+", label: "Photos" },
-            { value: 48, suffix: "", label: "Collections" },
-            { value: 12, suffix: "", label: "Photographers" },
-            { value: 190, suffix: "", label: "Countries Represented" }
-          ].map((stat, idx) => (
-            <div key={idx} className="flex flex-col gap-1.5 p-4">
-              <AnimatedCounter
-                targetValue={stat.value}
-                suffix={stat.suffix}
-                className="text-4xl md:text-5xl font-semibold tracking-tight text-eclipse"
-              />
-              <span className="font-mono text-[10px] uppercase tracking-widest text-silver/60">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 4. FEATURED PHOTOS INFINITE MARQUEE */}
-      <section className="w-full bg-void py-24 z-10 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
-          <div>
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-              INFINITY FEED
-            </span>
-            <h2 className="text-3xl md:text-4xl font-display text-white mt-2 font-semibold display-tight">
-              Featured Artworks
-            </h2>
-          </div>
-        </div>
-
-        {/* Infinite Scroll Marquee Body */}
-        <div className="relative w-full overflow-hidden py-4 select-none">
-          {/* Subtle fade masks at left/right edges for a premium vignette look */}
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-void to-transparent z-20 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-void to-transparent z-20 pointer-events-none" />
-
-          <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused] py-2 px-6">
-            {[...photos.slice(0, 8), ...photos.slice(0, 8)].map((photo, idx) => (
-              <div
-                key={`${photo.id}-${idx}`}
-                onClick={() => openLightbox(photo.id)}
-                className="flex-shrink-0 w-[300px] h-[400px] rounded-[18px] overflow-hidden bg-cosmos border border-stardust/40 relative group cursor-pointer hover:ring-1 hover:ring-eclipse/30 hover:shadow-lg hover:shadow-eclipse/10 active:scale-[0.98] transition-all duration-300"
-              >
-                <img
-                  src={photo.thumbnailSrc}
-                  alt={photo.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+      <ParticleWrapper id="home-stats">
+        <section className="w-full bg-cosmos border-y border-stardust/40 py-16 px-6 md:px-12 z-10 relative">
+          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { value: 2400, suffix: "+", label: "Photos" },
+              { value: 48, suffix: "", label: "Collections" },
+              { value: 12, suffix: "", label: "Photographers" },
+              { value: 190, suffix: "", label: "Countries Represented" }
+            ].map((stat, idx) => (
+              <div key={idx} className="flex flex-col gap-1.5 p-4">
+                <AnimatedCounter
+                  targetValue={stat.value}
+                  suffix={stat.suffix}
+                  className="text-4xl md:text-5xl font-semibold tracking-tight text-eclipse"
                 />
-                
-                {/* Bottom gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5" />
-
-                {/* Title & Tag on Hover */}
-                <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[20px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex flex-col">
-                  <h4 className="text-lg font-display font-medium text-white line-clamp-1 leading-snug">
-                    {photo.title}
-                  </h4>
-                  <span className="text-[10px] font-mono text-eclipse mt-1">
-                    {photo.category.replace("-", " ").toUpperCase()}
-                  </span>
-                </div>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-silver/60">
+                  {stat.label}
+                </span>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      </ParticleWrapper>
+
+      {/* 4. FEATURED PHOTOS INFINITE MARQUEE */}
+      <ParticleWrapper id="home-marquee">
+        <section className="w-full bg-void py-24 z-10 relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
+                INFINITY FEED
+              </span>
+              <h2 className="text-3xl md:text-4xl font-display text-white mt-2 font-semibold display-tight">
+                Featured Artworks
+              </h2>
+            </div>
+          </div>
+
+          {/* Infinite Scroll Marquee Body */}
+          <div className="relative w-full overflow-hidden py-4 select-none">
+            {/* Subtle fade masks at left/right edges for a premium vignette look */}
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-void to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-void to-transparent z-20 pointer-events-none" />
+
+            <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused] py-2 px-6">
+              {[...photos.slice(0, 8), ...photos.slice(0, 8)].map((photo, idx) => (
+                <div
+                  key={`${photo.id}-${idx}`}
+                  onClick={() => openLightbox(photo.id)}
+                  className="flex-shrink-0 w-[300px] h-[400px] rounded-[18px] overflow-hidden bg-cosmos border border-stardust/40 relative group cursor-pointer hover:ring-1 hover:ring-eclipse/30 hover:shadow-lg hover:shadow-eclipse/10 active:scale-[0.98] transition-all duration-300"
+                >
+                  <img
+                    src={photo.thumbnailSrc}
+                    alt={photo.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  
+                  {/* Bottom gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5" />
+
+                  {/* Title & Tag on Hover */}
+                  <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[20px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex flex-col">
+                    <h4 className="text-lg font-display font-medium text-white line-clamp-1 leading-snug">
+                      {photo.title}
+                    </h4>
+                    <span className="text-[10px] font-mono text-eclipse mt-1">
+                      {photo.category.replace("-", " ").toUpperCase()}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ParticleWrapper>
 
       {/* 5. NEWSLETTER SECTION - Apple store utility card */}
-      <section className="w-full bg-cosmos border-t border-stardust/40 py-24 px-6 md:px-12 z-10 relative">
-        <div className="max-w-4xl mx-auto bg-void border border-stardust/40 rounded-[24px] p-8 md:p-16 text-center flex flex-col items-center relative overflow-hidden select-none">
-          {/* subtle eclipse radial halo behind card */}
-          <div className="absolute -top-32 -left-32 w-64 h-64 bg-eclipse/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-aurora/5 rounded-full blur-3xl" />
+      <ParticleWrapper id="home-newsletter">
+        <section className="w-full bg-cosmos border-t border-stardust/40 py-24 px-6 md:px-12 z-10 relative">
+          <div className="max-w-4xl mx-auto bg-void border border-stardust/40 rounded-[24px] p-8 md:p-16 text-center flex flex-col items-center relative overflow-hidden select-none">
+            {/* subtle eclipse radial halo behind card */}
+            <div className="absolute -top-32 -left-32 w-64 h-64 bg-eclipse/10 rounded-full blur-3xl" />
+            <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-aurora/5 rounded-full blur-3xl" />
 
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-            CELESTIAL FEED
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display text-white mt-3 font-semibold display-tight">
-            Get Celestial Updates
-          </h2>
-          <p className="text-sm md:text-base text-silver/80 max-w-md mx-auto mt-4 leading-relaxed">
-            Join 12,000+ cosmic sky gazers. Receive monthly astronomical alerts, full moon announcements, and limited print releases.
-          </p>
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
+              CELESTIAL FEED
+            </span>
+            <h2 className="text-4xl md:text-5xl font-display text-white mt-3 font-semibold display-tight">
+              Get Celestial Updates
+            </h2>
+            <p className="text-sm md:text-base text-silver/80 max-w-md mx-auto mt-4 leading-relaxed">
+              Join 12,000+ cosmic sky gazers. Receive monthly astronomical alerts, full moon announcements, and limited print releases.
+            </p>
 
-          {/* Form inputs */}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Subscribed! Thank you for joining our stargazing feed.");
-            }}
-            className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-lg mt-8"
-          >
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              required
-              className="w-full h-11 bg-cosmos text-white font-ui border border-stardust/60 rounded-full px-5 focus:outline-none focus:border-eclipse focus:ring-1 focus:ring-eclipse/50 text-[14px] transition-all"
-            />
-            <button
-              type="submit"
-              className="btn-primary w-full sm:w-auto h-11 px-8 rounded-full shadow-lg shrink-0"
+            {/* Form inputs */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert("Subscribed! Thank you for joining our stargazing feed.");
+              }}
+              className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-lg mt-8"
             >
-              <Send className="w-3.5 h-3.5" />
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </section>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+                className="w-full h-11 bg-cosmos text-white font-ui border border-stardust/60 rounded-full px-5 focus:outline-none focus:border-eclipse focus:ring-1 focus:ring-eclipse/50 text-[14px] transition-all"
+              />
+              <button
+                type="submit"
+                className="btn-primary w-full sm:w-auto h-11 px-8 rounded-full shadow-lg shrink-0"
+              >
+                <Send className="w-3.5 h-3.5" />
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </section>
+      </ParticleWrapper>
     </div>
   );
 };
