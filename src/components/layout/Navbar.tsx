@@ -40,10 +40,10 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <header className="sub-nav-frosted">
-        <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 h-full">
-          {/* Inner content — sits above liquid glass ::before / ::after layers */}
+        {/* Floating Island Pill */}
+        <div className="sub-nav-island">
+          {/* Logo */}
           <div className="relative z-[2] flex items-center gap-2">
-            {/* Logo Custom Upscaled Icon */}
             <Link to="/" className="flex items-center gap-2.5 select-none group">
               <img 
                 src="/logo.png" 
@@ -75,7 +75,7 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Action Button - Right */}
-          <div className="relative z-[2] hidden md:flex items-center gap-6">
+          <div className="relative z-[2] hidden md:flex items-center gap-5">
             <div className="flex items-center gap-4 text-silver">
               {/* Likes count indicator */}
               <Link to="/gallery" className="relative flex items-center hover:text-white transition-colors">
@@ -89,12 +89,12 @@ export const Navbar: React.FC = () => {
               <User className="w-[18px] h-[18px] hover:text-white transition-colors cursor-pointer" />
             </div>
 
-            {/* Explore button — hidden on the gallery page */}
+            {/* Explore button */}
             {!isActive("/gallery") && (
               <OrbitButton
                 color="blue"
                 onClick={() => navigate("/gallery")}
-                className="py-2.5 px-6 min-w-[120px]"
+                className="py-2 px-5 min-w-[110px] text-[13px]"
               >
                 <Compass className="w-4 h-4" />
                 Explore
