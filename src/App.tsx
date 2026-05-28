@@ -8,23 +8,26 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { GalleryProvider } from './context/GalleryContext';
+import { ScrollParticleProvider } from './components/ui/ScrollParticleProvider';
 
 function App() {
   return (
     <GalleryProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="gallery" element={<GalleryPage />} />
-            <Route path="collections" element={<CollectionsPage />} />
-            <Route path="collections/:slug" element={<CollectionDetailPage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="contact" element={<ContactPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <ScrollParticleProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="gallery" element={<GalleryPage />} />
+              <Route path="collections" element={<CollectionsPage />} />
+              <Route path="collections/:slug" element={<CollectionDetailPage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="contact" element={<ContactPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ScrollParticleProvider>
     </GalleryProvider>
   );
 }
