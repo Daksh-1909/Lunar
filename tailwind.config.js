@@ -8,26 +8,31 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        void: "#020408",
-        cosmos: "#060d1a",
-        nebula: "#0a1628",
-        stardust: "#1a2a4a",
+        // ── User Palette (deep-navy) ──
+        "shade-5": "#050714",      // darkest void
+        primary: "#0B0F2B",        // card/main surface
+        secondary: "#121A4A",      // secondary surfaces
+        accent: "#2C3E91",         // borders, dividers, interactive
+        background: "#6A7FDB",     // highlight / periwinkle glow
+
+        // ── Semantic aliases (mapped to new palette) ──
+        void: "#050714",           // deepest background  → shade-5
+        cosmos: "#0B0F2B",         // card backgrounds    → primary
+        nebula: "#121A4A",         // secondary surfaces  → secondary
+        stardust: "#2C3E91",       // borders, dividers   → accent
+
+        // ── Text & accent tokens (kept) ──
         moonbeam: "#c8d8f0",
         silver: "#8899bb",
         eclipse: "#f4a623",
         aurora: "#00e5a0",
         supernova: "#ff6b6b",
         twilight: "#7c3aed",
-        // Apple Design System Interactive Colors
-        primary: "#0066cc",
-        "primary-focus": "#0071e3",
-        "primary-on-dark": "#2997ff",
+
+        // ── Interactive (updated to palette accent) ──
+        "primary-focus": "#3d52b5",
+        "primary-on-dark": "#6A7FDB",
         ink: "#1d1d1f",
-        "canvas-parchment": "#f5f5f7",
-        "surface-pearl": "#fafafc",
-        "surface-tile-1": "#272729",
-        "surface-tile-2": "#2a2a2c",
-        "surface-tile-3": "#252527",
       },
       fontFamily: {
         display: ["Cormorant Garamond", "serif"],
