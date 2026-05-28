@@ -36,7 +36,7 @@ module.exports = {
       },
       fontFamily: {
         display: ["Cormorant Garamond", "serif"],
-        ui: ["Inter", "sans-serif"],
+        ui: ["Montserrat", "sans-serif"],
         mono: ["Space Mono", "monospace"],
       },
       animation: {

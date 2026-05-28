@@ -6,7 +6,11 @@
 
 @layer base {
   body {
-    @apply bg-void text-moonbeam font-ui antialiased selection:bg-primary/30 selection:text-white overflow-x-hidden;
+    @apply bg-void text-moonbeam font-ui antialiased selection:bg-accent/30 selection:text-white overflow-x-hidden;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    letter-spacing: -0.01em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
