@@ -117,7 +117,7 @@ export const Footer: React.FC = () => {
                 <Link to="/contact" className="text-silver/70 hover:text-white transition-colors">Report a Bug</Link>
               </li>
               <li>
-                <a href="https://daksh-patel.dakshp860.workers.dev/" target="_blank" rel="noreferrer" className="text-silver/70 hover:text-white transition-colors">Author Portfolio</a>
+                <a href="https://daksh-patel.vercel.app/" target="_blank" rel="noreferrer" className="text-silver/70 hover:text-white transition-colors">Author Portfolio</a>
               </li>
             </ul>
           </div>
