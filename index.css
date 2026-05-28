@@ -45,66 +45,46 @@
   }
 
   /* Crystal Liquid Glass Floating Nav */
+  /* Crystal Liquid Glass Floating Nav - Redesigned Full-Width Glow Spotlight */
   .sub-nav-frosted {
-    position: sticky;
-    top: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 56px;
-    max-width: 72rem;
-    width: 92%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    z-index: 40;
-    border-radius: 9999px;
+    z-index: 50; /* Ensure z-index floats high above all canvases and interactive backgrounds */
+    border-radius: 0;
+    margin: 0;
 
-    /* User's Liquid Glass Strong Style with optimized blur to show the moon background */
-    background: rgba(255, 255, 255, 0.01);
+    /* Additive glowing spotlight in center behind the links */
+    background: 
+      radial-gradient(ellipse 55% 120% at 50% 50%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 35%, rgba(255, 255, 255, 0) 70%),
+      rgba(2, 4, 8, 0.75);
     background-blend-mode: luminosity;
 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
-    border: none;
-    position: relative;
-    overflow: hidden;
+    /* Straight horizontal top and bottom thin borders */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: none;
+    border-right: none;
 
-    box-shadow:
-      0 10px 30px rgba(0, 0, 0, 0.45), /* Ambient observatory drop shadow */
-      inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
 
     transition:
       backdrop-filter 400ms cubic-bezier(0.4, 0, 0.2, 1),
-      box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1),
       background 400ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* User's Specular Crystal Border Mask */
+  /* User's Specular Crystal Border Mask - Disabled for straight edge-to-edge layout */
   .sub-nav-frosted::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.4px;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(255, 255, 255, 0.2) 20%,
-      rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, 0) 60%,
-      rgba(255, 255, 255, 0.2) 80%,
-      rgba(255, 255, 255, 0.5) 100%
-    );
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    z-index: 1;
+    content: none !important;
   }
 
   .sub-nav-frosted::after {

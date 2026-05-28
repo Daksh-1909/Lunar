@@ -40,75 +40,76 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <header className="sub-nav-frosted">
-        {/* Inner content — sits above liquid glass ::before / ::after layers */}
-        <div className="relative z-[2] flex items-center gap-2">
+        <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12">
           {/* Logo Custom Upscaled Icon */}
-          <Link to="/" className="flex items-center gap-2.5 select-none group">
-            <img 
-              src="/logo.png" 
-              alt="Lunar Logo" 
-              className="w-6 h-6 object-contain transition-transform duration-500 group-hover:scale-110" 
-            />
-            <span className="font-display text-2xl font-medium tracking-wide text-white bg-gradient-to-r from-moonbeam to-eclipse bg-clip-text text-transparent">
-              Lunar
-            </span>
-          </Link>
-        </div>
-
-        {/* Navigation links - Center */}
-        <nav className="relative z-[2] hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`relative font-ui text-[14px] font-medium tracking-wide transition-colors duration-200 py-1.5 ${
-                isActive(link.path) ? "text-white" : "text-silver hover:text-white"
-              }`}
-            >
-              {link.name}
-              {isActive(link.path) && (
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-eclipse rounded-full animate-in fade-in zoom-in-50 duration-300" />
-              )}
+          <div className="relative z-[2] flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2.5 select-none group">
+              <img 
+                src="/logo.png" 
+                alt="Lunar Logo" 
+                className="w-6 h-6 object-contain transition-transform duration-500 group-hover:scale-110" 
+              />
+              <span className="font-display text-2xl font-medium tracking-wide text-white bg-gradient-to-r from-moonbeam to-eclipse bg-clip-text text-transparent">
+                Lunar
+              </span>
             </Link>
-          ))}
-        </nav>
-
-        {/* Action Button - Right */}
-        <div className="relative z-[2] hidden md:flex items-center gap-6">
-          <div className="flex items-center gap-4 text-silver">
-            {/* Likes count indicator */}
-            <Link to="/gallery" className="relative flex items-center hover:text-white transition-colors">
-              <Heart className="w-[18px] h-[18px]" />
-              {likedPhotoIds.size > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-supernova text-white font-mono text-[8px] rounded-full w-3.5 h-3.5 flex items-center justify-center">
-                  {likedPhotoIds.size}
-                </span>
-              )}
-            </Link>
-            <User className="w-[18px] h-[18px] hover:text-white transition-colors cursor-pointer" />
           </div>
 
-          {/* Explore button — hidden on the gallery page */}
-          {!isActive("/gallery") && (
-            <OrbitButton
-              color="blue"
-              onClick={() => navigate("/gallery")}
-              className="py-2.5 px-6 min-w-[120px]"
-            >
-              <Compass className="w-4 h-4" />
-              Explore
-            </OrbitButton>
-          )}
-        </div>
+          {/* Navigation links - Center */}
+          <nav className="relative z-[2] hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`relative font-ui text-[14px] font-medium tracking-wide transition-colors duration-200 py-1.5 ${
+                  isActive(link.path) ? "text-white" : "text-silver hover:text-white"
+                }`}
+              >
+                {link.name}
+                {isActive(link.path) && (
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-eclipse rounded-full animate-in fade-in zoom-in-50 duration-300" />
+                )}
+              </Link>
+            ))}
+          </nav>
 
-        {/* Mobile controls */}
-        <div className="relative z-[2] flex items-center md:hidden gap-3">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-white hover:text-eclipse transition-colors"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Action Button - Right */}
+          <div className="relative z-[2] hidden md:flex items-center gap-6">
+            <div className="flex items-center gap-4 text-silver">
+              {/* Likes count indicator */}
+              <Link to="/gallery" className="relative flex items-center hover:text-white transition-colors">
+                <Heart className="w-[18px] h-[18px]" />
+                {likedPhotoIds.size > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 bg-supernova text-white font-mono text-[8px] rounded-full w-3.5 h-3.5 flex items-center justify-center">
+                    {likedPhotoIds.size}
+                  </span>
+                )}
+              </Link>
+              <User className="w-[18px] h-[18px] hover:text-white transition-colors cursor-pointer" />
+            </div>
+
+            {/* Explore button — hidden on the gallery page */}
+            {!isActive("/gallery") && (
+              <OrbitButton
+                color="blue"
+                onClick={() => navigate("/gallery")}
+                className="py-2.5 px-6 min-w-[120px]"
+              >
+                <Compass className="w-4 h-4" />
+                Explore
+              </OrbitButton>
+            )}
+          </div>
+
+          {/* Mobile controls */}
+          <div className="relative z-[2] flex items-center md:hidden gap-3">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white hover:text-eclipse transition-colors"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </header>
 
