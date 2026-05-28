@@ -170,24 +170,19 @@ export const ParticleWrapper: React.FC<ParticleWrapperProps> = ({
   }, [phase, canvasDimensions, padding, settings, id, registerActiveInstance, unregisterActiveInstance, setPhase]);
 
   // Determine visibility states for DOM content and canvas overlay
-  const isContentVisible = phase === 'visible';
+  const isContentVisible = phase === 'visible' || phase === 'hidden';
   const isCanvasVisible = phase === 'dissolving' || phase === 'rebuilding';
 
   return (
     <div
       ref={elementRef}
       className="relative w-full group/particle-wrapper"
-      style={{
-        // Keep elements structurally aligned during transition to prevent jumps
-        minHeight: contentRef.current?.offsetHeight || 'auto'
-      }}
     >
       {/* Content wrapper with smooth visual opacity flip */}
       <div
         ref={contentRef}
         style={{
           opacity: isContentVisible ? 1 : 0,
-          visibility: phase === 'hidden' ? 'hidden' : 'visible',
           transition: 'opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
           pointerEvents: isContentVisible ? 'auto' : 'none'
         }}
