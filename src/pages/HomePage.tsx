@@ -6,6 +6,7 @@ import { AnimatedCounter } from "../components/ui/AnimatedCounter";
 import { photos, collections } from "../data/mockData";
 import { useGallery } from "../context/GalleryContext";
 import { OrbitButton } from "../components/ui/OrbitButton";
+import { ScrollReveal } from "../components/ui/ScrollReveal";
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -336,98 +337,238 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. FEATURED CATEGORIES SECTION - Void canvas */}
+      {/* 2. GOAL SECTION - Observatory Manifesto */}
+      <section className="w-full bg-void py-28 px-6 md:px-12 z-10 relative overflow-hidden border-t border-stardust/40">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
+                OUR MISSION & GOAL
+              </span>
+              <h2 className="text-4xl md:text-5xl font-display text-white mt-4 font-semibold display-tight">
+                Bridging Fine Art & Celestial Grandeur
+              </h2>
+              <div className="w-16 h-[1px] bg-accent mx-auto mt-6" />
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <ScrollReveal delay={0.1} yOffset={40}>
+              <div className="flex flex-col gap-6 text-left">
+                <h3 className="text-2xl md:text-3xl font-display font-medium text-white leading-snug">
+                  To archive and celebrate the universe's quiet alignments.
+                </h3>
+                <p className="text-base text-silver/80 font-ui leading-relaxed">
+                  Lunar was founded as an independent digital sanctuary. Our goal is to capture the fleeting moments of astronomical alignment—where the moon, sun, and earth share a perfect path—and present them in raw, uncompromising visual clarity.
+                </p>
+                <p className="text-base text-silver/80 font-ui leading-relaxed">
+                  We believe that witnessing the grandeur of eclipses, corona rays, and deep space nebulae invites a profound stillness. Each image is meticulously cataloged with environmental metadata, preserving both the aesthetic and scientific truth of the cosmos.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2} yOffset={40}>
+              <div className="relative p-8 rounded-2xl bg-cosmos border border-stardust/40 overflow-hidden group">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-eclipse/5 rounded-full blur-2xl group-hover:bg-eclipse/10 transition-all" />
+                <h4 className="font-mono text-xs text-eclipse uppercase tracking-wider mb-4">THE LUNAR PROMISE</h4>
+                <ul className="space-y-4">
+                  {[
+                    { title: "Archival Fidelity", desc: "No compression artifacts. Every canvas is rendered in original wide-gamut colors." },
+                    { title: "Scientific Preservation", desc: "Includes precise ISO, focal length, phase angles, and geo-coordinates." },
+                    { title: "Zero Ads or Clutter", desc: "A museum-first interface designed solely for reverent contemplation." }
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex gap-4">
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center font-mono text-[10px] text-accent font-semibold mt-0.5">
+                        {idx + 1}
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="font-display font-medium text-white text-base">{item.title}</span>
+                        <span className="text-xs text-silver/70 leading-relaxed mt-0.5">{item.desc}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. FEATURED CATEGORIES SECTION - Void canvas */}
       <section className="w-full bg-void py-24 px-6 md:px-12 border-t border-stardust/40 z-10 relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-              CURATED CHASSIS
-            </span>
-            <h2 className="text-4xl md:text-5xl font-display text-white mt-3 font-semibold display-tight">
-              Discover Our Collections
-            </h2>
-            <div className="w-12 h-[1px] bg-stardust mx-auto mt-4" />
-          </div>
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
+                CURATED CHASSIS
+              </span>
+              <h2 className="text-4xl md:text-5xl font-display text-white mt-3 font-semibold display-tight">
+                Discover Our Collections
+              </h2>
+              <div className="w-12 h-[1px] bg-stardust mx-auto mt-4" />
+            </div>
+          </ScrollReveal>
 
           {/* 2x2 grid category layout - Apple Tiles */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {categories.map((cat, idx) => (
-              <Link
-                key={idx}
-                to={cat.path}
-                className="group relative h-[360px] rounded-[18px] overflow-hidden border border-stardust/40 bg-cosmos flex flex-col justify-end p-8 transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-black/60 cursor-pointer"
-              >
-                {/* Image underlay */}
-                <img
-                  src={cat.image}
-                  alt={cat.title}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-[1.05] transition-transform duration-700 ease-out"
-                />
+              <ScrollReveal key={idx} delay={idx * 0.1} yOffset={30}>
+                <Link
+                  to={cat.path}
+                  className="group relative block h-[360px] rounded-[18px] overflow-hidden border border-stardust/40 bg-cosmos p-8 transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-black/60 cursor-pointer"
+                >
+                  {/* Image underlay */}
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-[1.05] transition-transform duration-700 ease-out"
+                  />
 
-                {/* Dark bottom gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                  {/* Dark bottom gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
 
-                {/* Count Badge top-right */}
-                <div className="absolute top-6 right-6 z-10">
-                  <span className={`font-mono text-xs font-semibold px-3 py-1 rounded-full ${cat.badgeColor}`}>
-                    {cat.count} Series
-                  </span>
-                </div>
-
-                {/* Category Titles info */}
-                <div className="relative z-10 translate-y-[10px] group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-3xl font-display font-medium text-white mb-2 leading-none">
-                    {cat.title}
-                  </h3>
-                  <p className="text-sm text-silver/80 font-ui leading-relaxed max-w-sm">
-                    {cat.desc}
-                  </p>
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-eclipse mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span>ENTER CHANNELS</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                  {/* Count Badge top-right */}
+                  <div className="absolute top-6 right-6 z-10">
+                    <span className={`font-mono text-xs font-semibold px-3 py-1 rounded-full ${cat.badgeColor}`}>
+                      {cat.count} Series
+                    </span>
                   </div>
-                </div>
-              </Link>
+
+                  {/* Category Titles info */}
+                  <div className="absolute bottom-8 left-8 right-8 z-10 translate-y-[10px] group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-3xl font-display font-medium text-white mb-2 leading-none">
+                      {cat.title}
+                    </h3>
+                    <p className="text-sm text-silver/80 font-ui leading-relaxed max-w-sm">
+                      {cat.desc}
+                    </p>
+                    <div className="flex items-center gap-1.5 text-xs font-mono text-eclipse mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span>ENTER CHANNELS</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                </Link>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. STATS BAR SECTION - Cosmic luxury banner */}
+      {/* 4. STATS BAR SECTION - Cosmic luxury banner */}
       <section className="w-full bg-cosmos border-y border-stardust/40 py-16 px-6 md:px-12 z-10 relative">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { value: 2400, suffix: "+", label: "Photos" },
-            { value: 48, suffix: "", label: "Collections" },
-            { value: 12, suffix: "", label: "Photographers" },
-            { value: 190, suffix: "", label: "Countries Represented" }
-          ].map((stat, idx) => (
-            <div key={idx} className="flex flex-col gap-1.5 p-4">
-              <AnimatedCounter
-                targetValue={stat.value}
-                suffix={stat.suffix}
-                className="text-4xl md:text-5xl font-semibold tracking-tight text-eclipse"
-              />
-              <span className="font-mono text-[10px] uppercase tracking-widest text-silver/60">
-                {stat.label}
+        <ScrollReveal>
+          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { value: 2400, suffix: "+", label: "Photos" },
+              { value: 48, suffix: "", label: "Collections" },
+              { value: 12, suffix: "", label: "Photographers" },
+              { value: 190, suffix: "", label: "Countries Represented" }
+            ].map((stat, idx) => (
+              <div key={idx} className="flex flex-col gap-1.5 p-4">
+                <AnimatedCounter
+                  targetValue={stat.value}
+                  suffix={stat.suffix}
+                  className="text-4xl md:text-5xl font-semibold tracking-tight text-eclipse"
+                />
+                <span className="font-mono text-[10px] uppercase tracking-widest text-silver/60">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* 5. FEATURES SECTION - Cosmic Capabilities */}
+      <section className="w-full bg-void py-28 px-6 md:px-12 border-b border-stardust/40 z-10 relative">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
+                CELESTIAL CAPABILITIES
               </span>
+              <h2 className="text-4xl md:text-5xl font-display text-white mt-4 font-semibold display-tight">
+                Designed for Deep Contemplation
+              </h2>
+              <div className="w-16 h-[1px] bg-accent mx-auto mt-6" />
             </div>
-          ))}
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: (
+                  <svg className="w-6 h-6 text-eclipse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9" strokeWidth="1.5" />
+                    <circle cx="12" cy="12" r="3" strokeWidth="1.5" fill="currentColor" fillOpacity="0.2" />
+                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4" strokeWidth="1.5" strokeLinecap="round" />
+                  </svg>
+                ),
+                title: "Gravity Engine",
+                desc: "UI elements dynamically react to your cursor position, simulating astronomical gravity fields."
+              },
+              {
+                icon: (
+                  <svg className="w-6 h-6 text-aurora" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 19V5l12-3v14M9 10H5M9 15H5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="6" cy="10" r="2" strokeWidth="1.5" />
+                    <circle cx="6" cy="15" r="2" strokeWidth="1.5" />
+                  </svg>
+                ),
+                title: "Astral Audio Player",
+                desc: "Curated ambient soundscapes to deepen your visual journey while browsing cosmic horizons."
+              },
+              {
+                icon: (
+                  <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                ),
+                title: "Archival Catalog",
+                desc: "High-resolution astrophotography series categorized and detailed with full exposure metrics."
+              },
+              {
+                icon: (
+                  <svg className="w-6 h-6 text-supernova" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth="1.5" />
+                    <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                ),
+                title: "Fullscreen Lightbox",
+                desc: "Examine every crater and star cluster up close using our responsive lightbox viewer."
+              }
+            ].map((feature, idx) => (
+              <ScrollReveal key={idx} delay={idx * 0.1} yOffset={30}>
+                <div className="h-full p-8 rounded-2xl bg-cosmos border border-stardust/40 flex flex-col items-start text-left relative overflow-hidden group hover:border-eclipse/40 transition-colors">
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-accent/5 rounded-full blur-xl group-hover:bg-accent/10 transition-all" />
+                  <div className="p-3 rounded-xl bg-void border border-stardust/40 mb-6 shrink-0 shadow-inner">
+                    {feature.icon}
+                  </div>
+                  <h3 className="font-display font-medium text-white text-xl mb-3">{feature.title}</h3>
+                  <p className="text-sm text-silver/70 font-ui leading-relaxed">{feature.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 4. FEATURED PHOTOS INFINITE MARQUEE */}
+      {/* 6. FEATURED PHOTOS INFINITE MARQUEE */}
       <section className="w-full bg-void py-24 z-10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
-          <div>
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-              INFINITY FEED
-            </span>
-            <h2 className="text-3xl md:text-4xl font-display text-white mt-2 font-semibold display-tight">
-              Featured Artworks
-            </h2>
-          </div>
+          <ScrollReveal>
+            <div>
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
+                INFINITY FEED
+              </span>
+              <h2 className="text-3xl md:text-4xl font-display text-white mt-2 font-semibold display-tight">
+                Featured Artworks
+              </h2>
+            </div>
+          </ScrollReveal>
         </div>
 
         {/* Infinite Scroll Marquee Body */}
@@ -468,46 +609,48 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. NEWSLETTER SECTION - Apple store utility card */}
+      {/* 7. NEWSLETTER SECTION - Apple store utility card */}
       <section className="w-full bg-cosmos border-t border-stardust/40 py-24 px-6 md:px-12 z-10 relative">
-        <div className="max-w-4xl mx-auto bg-void border border-stardust/40 rounded-[24px] p-8 md:p-16 text-center flex flex-col items-center relative overflow-hidden select-none">
-          {/* subtle eclipse radial halo behind card */}
-          <div className="absolute -top-32 -left-32 w-64 h-64 bg-eclipse/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-aurora/5 rounded-full blur-3xl" />
+        <ScrollReveal>
+          <div className="max-w-4xl mx-auto bg-void border border-stardust/40 rounded-[24px] p-8 md:p-16 text-center flex flex-col items-center relative overflow-hidden select-none">
+            {/* subtle eclipse radial halo behind card */}
+            <div className="absolute -top-32 -left-32 w-64 h-64 bg-eclipse/10 rounded-full blur-3xl" />
+            <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-aurora/5 rounded-full blur-3xl" />
 
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-            CELESTIAL FEED
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display text-white mt-3 font-semibold display-tight">
-            Get Celestial Updates
-          </h2>
-          <p className="text-sm md:text-base text-silver/80 max-w-md mx-auto mt-4 leading-relaxed">
-            Join 12,000+ cosmic sky gazers. Receive monthly astronomical alerts, full moon announcements, and limited print releases.
-          </p>
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
+              CELESTIAL FEED
+            </span>
+            <h2 className="text-4xl md:text-5xl font-display text-white mt-3 font-semibold display-tight">
+              Get Celestial Updates
+            </h2>
+            <p className="text-sm md:text-base text-silver/80 max-w-md mx-auto mt-4 leading-relaxed">
+              Join 12,000+ cosmic sky gazers. Receive monthly astronomical alerts, full moon announcements, and limited print releases.
+            </p>
 
-          {/* Form inputs */}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Subscribed! Thank you for joining our stargazing feed.");
-            }}
-            className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-lg mt-8"
-          >
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              required
-              className="w-full h-11 bg-cosmos text-white font-ui border border-stardust/60 rounded-full px-5 focus:outline-none focus:border-eclipse focus:ring-1 focus:ring-eclipse/50 text-[14px] transition-all"
-            />
-            <button
-              type="submit"
-              className="btn-primary w-full sm:w-auto h-11 px-8 rounded-full shadow-lg shrink-0"
+            {/* Form inputs */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert("Subscribed! Thank you for joining our stargazing feed.");
+              }}
+              className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-lg mt-8"
             >
-              <Send className="w-3.5 h-3.5" />
-              Subscribe
-            </button>
-          </form>
-        </div>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+                className="w-full h-11 bg-cosmos text-white font-ui border border-stardust/60 rounded-full px-5 focus:outline-none focus:border-eclipse focus:ring-1 focus:ring-eclipse/50 text-[14px] transition-all"
+              />
+              <button
+                type="submit"
+                className="btn-primary w-full sm:w-auto h-11 px-8 rounded-full shadow-lg shrink-0"
+              >
+                <Send className="w-3.5 h-3.5" />
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </ScrollReveal>
       </section>
     </div>
   );
