@@ -23,6 +23,11 @@ export const HomePage: React.FC = () => {
   const gridOffset = useRef({ x: 0, y: 0 });
   const gridSvgRef = useRef<SVGSVGElement | null>(null);
 
+  // Scroll lock and snap refs
+  const startedAtTop = useRef(window.scrollY < 100);
+  const goalAnimPlayed = useRef(false);
+  const isScrollLocked = useRef(false);
+
   useEffect(() => {
     const section = sectionRef.current;
     const canvas = canvasRef.current;
@@ -60,8 +65,84 @@ export const HomePage: React.FC = () => {
     // Smooth scroll value for the moon pop effect (separate lerp target)
     const popScroll = { smooth: window.scrollY };
 
+    // Prevent Scroll helpers
+    let supportsPassive = false;
+    try {
+      const opts = Object.defineProperty({}, 'passive', {
+        get: function() {
+          supportsPassive = true;
+          return true;
+        }
+      });
+      window.addEventListener('testPassive', null as any, opts);
+      window.removeEventListener('testPassive', null as any, opts);
+    } catch (e) {}
+
+    const wheelOpt = supportsPassive ? { passive: false } : false;
+    const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+    const preventDefault = (e: Event) => {
+      e.preventDefault();
+    };
+
+    const keys: { [key: string]: boolean } = {
+      "ArrowUp": true,
+      "ArrowDown": true,
+      "Space": true,
+      "PageUp": true,
+      "PageDown": true,
+      "End": true,
+      "Home": true
+    };
+
+    const preventDefaultForScrollKeys = (e: KeyboardEvent) => {
+      if (keys[e.code]) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    const disableScroll = () => {
+      window.addEventListener('DOMMouseScroll', preventDefault, false);
+      window.addEventListener(wheelEvent, preventDefault, wheelOpt);
+      window.addEventListener('touchmove', preventDefault, wheelOpt);
+      window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+    };
+
+    const enableScroll = () => {
+      window.removeEventListener('DOMMouseScroll', preventDefault, false);
+      window.removeEventListener(wheelEvent, preventDefault, wheelOpt as any);
+      window.removeEventListener('touchmove', preventDefault, wheelOpt as any);
+      window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+    };
+
+    let scrollLockTimeoutId: any = null;
+
     const handleScroll = () => {
       scrollPos.y = window.scrollY;
+
+      // Scroll lock and snap logic when entering the manifesto section
+      if (
+        startedAtTop.current &&
+        !goalAnimPlayed.current &&
+        !isScrollLocked.current &&
+        window.scrollY > 40 &&
+        window.scrollY < window.innerHeight - 50
+      ) {
+        isScrollLocked.current = true;
+        disableScroll();
+
+        window.scrollTo({
+          top: window.innerHeight,
+          behavior: "smooth"
+        });
+
+        scrollLockTimeoutId = setTimeout(() => {
+          enableScroll();
+          goalAnimPlayed.current = true;
+          isScrollLocked.current = false;
+        }, 2200);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -222,6 +303,8 @@ export const HomePage: React.FC = () => {
       section.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("scroll", handleScroll);
       cancelAnimationFrame(animationFrameId);
+      if (scrollLockTimeoutId) clearTimeout(scrollLockTimeoutId);
+      enableScroll();
     };
   }, []);
 
