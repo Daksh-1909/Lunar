@@ -9,17 +9,17 @@ module.exports = {
     extend: {
       colors: {
         // ── User Palette ──
-        "shade-5": "#b0c4de",
-        primary: "#0a0a0a",
-        secondary: "#1a1a1a",
-        accent: "#2d2d2d",
-        background: "#4682b4",
+        "shade-5": "#05081A",
+        primary: "#090E23",
+        secondary: "#2B4B7A",
+        accent: "#5BB8FF",
+        background: "#A5DBFF",
 
         // ── Semantic aliases (mapped to new palette) ──
-        void: "#b0c4de",           // deepest background  → shade-5
-        cosmos: "#0a0a0a",         // card backgrounds    → primary
-        nebula: "#1a1a1a",         // secondary surfaces  → secondary
-        stardust: "#2d2d2d",       // borders, dividers   → accent
+        void: "#05081A",           // deepest background  → shade-5
+        cosmos: "#090E23",         // card backgrounds    → primary
+        nebula: "#2B4B7A",         // secondary surfaces  → secondary
+        stardust: "#5BB8FF",       // borders, dividers   → accent
 
         // ── Text & accent tokens (kept) ──
         moonbeam: "#c8d8f0",
