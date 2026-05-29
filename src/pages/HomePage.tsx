@@ -36,7 +36,8 @@ export const HomePage: React.FC = () => {
 
     // Preload Moon and Earth photographs
     const moonImg = new Image();
-    moonImg.src = "/hero-bg.jpg";
+    moonImg.crossOrigin = "anonymous"; // Enable cross-origin for canvas compatibility
+    moonImg.src = "https://res.cloudinary.com/di17osvrd/image/upload/v1780028792/normal_red_2K_202605290955_c5b0su.jpg";
 
     const earthImg = new Image();
     earthImg.src = "/hero-reveal.jpg";

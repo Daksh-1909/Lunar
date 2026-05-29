@@ -41,7 +41,7 @@ export const FloatingTextReveal: React.FC<FloatingTextRevealProps> = ({
               y: 0,
               rotate: 0,
             }}
-            viewport={{ once: true, margin: "-120px" }}
+            viewport={{ once: false, margin: "-120px" }}
             transition={{
               duration: 1.2,
               delay: idx * 0.03, // fluid staggered wave
