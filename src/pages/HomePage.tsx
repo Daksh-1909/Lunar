@@ -7,6 +7,7 @@ import { photos, collections } from "../data/mockData";
 import { useGallery } from "../context/GalleryContext";
 import { OrbitButton } from "../components/ui/OrbitButton";
 import { ScrollReveal } from "../components/ui/ScrollReveal";
+import { FloatingTextReveal } from "../components/ui/FloatingTextReveal";
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -342,17 +343,19 @@ export const HomePage: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-5xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-eclipse">
-                OUR MISSION & GOAL
+            <div className="text-center max-w-4xl mx-auto mb-16">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-silver/60">
+                OBSERVATORY MANIFESTO
               </span>
-              <h2 className="text-4xl md:text-5xl font-display text-white mt-4 font-semibold display-tight">
+              <FloatingTextReveal
+                text="OUR MISSION & GOAL"
+                className="text-5xl sm:text-7xl md:text-8xl font-display text-eclipse mt-4 font-semibold tracking-widest leading-tight"
+              />
+              <h2 className="text-2xl md:text-3xl font-display text-white mt-6 font-light italic opacity-90 leading-relaxed max-w-2xl mx-auto">
                 Bridging Fine Art & Celestial Grandeur
               </h2>
-              <div className="w-16 h-[1px] bg-accent mx-auto mt-6" />
+              <div className="w-16 h-[1px] bg-accent mx-auto mt-8" />
             </div>
-          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <ScrollReveal delay={0.1} yOffset={40}>

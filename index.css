@@ -104,13 +104,13 @@
     border-radius: 9999px;
 
     background:
-      radial-gradient(ellipse 60% 100% at 50% 50%, rgba(106, 127, 219, 0.18) 0%, rgba(106, 127, 219, 0.04) 55%, transparent 80%),
-      #0B0F2B;
+      radial-gradient(ellipse 60% 100% at 50% 50%, rgba(255, 77, 77, 0.15) 0%, rgba(255, 77, 77, 0.03) 55%, transparent 80%),
+      var(--demo-surface);
 
-    border: 1px solid #2C3E91;
+    border: 1px solid var(--demo-border);
     box-shadow:
-      0 4px 32px rgba(5, 7, 20, 0.7),
-      0 1px 0 rgba(106, 127, 219, 0.25) inset;
+      0 4px 32px rgba(0, 0, 0, 0.7),
+      0 1px 0 rgba(255, 77, 77, 0.15) inset;
 
     backdrop-filter: none;
     transition: box-shadow 350ms cubic-bezier(0.4,0,0.2,1),
@@ -119,9 +119,9 @@
 
   .sub-nav-island:hover {
     box-shadow:
-      0 8px 48px rgba(44, 62, 145, 0.35),
-      0 1px 0 rgba(106, 127, 219, 0.35) inset;
-    border-color: #6A7FDB;
+      0 8px 48px rgba(255, 77, 77, 0.25),
+      0 1px 0 rgba(255, 77, 77, 0.25) inset;
+    border-color: var(--demo-accent);
   }
 
   /* Disable old pseudo-element borders */
@@ -142,8 +142,8 @@
 
   /* Solid Card — Primary Utility */
   .liquid-glass {
-    background: #0B0F2B !important;
-    border: 1px solid #2C3E91 !important;
+    background: var(--demo-surface) !important;
+    border: 1px solid var(--demo-border) !important;
     box-shadow: none !important;
     position: relative;
     overflow: hidden;
@@ -154,8 +154,8 @@
 
   /* Solid Card — Secondary Strong Utility */
   .liquid-glass-strong {
-    background: #121A4A !important;
-    border: 1px solid #2C3E91 !important;
+    background: var(--demo-secondary) !important;
+    border: 1px solid var(--demo-border) !important;
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5) !important;
     position: relative;
     overflow: hidden;
@@ -173,18 +173,18 @@
   /* Solid Accent Navy Pill CTA */
   .btn-primary {
     @apply font-ui text-[14px] font-medium rounded-full px-[22px] py-[11px] inline-flex items-center justify-center gap-2;
-    background: #2C3E91 !important;
-    border: 1px solid #2C3E91 !important;
-    box-shadow: 0 4px 20px rgba(44, 62, 145, 0.4) !important;
+    background: var(--demo-primary) !important;
+    border: 1px solid var(--demo-primary) !important;
+    box-shadow: 0 4px 20px var(--demo-glow) !important;
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    color: #ffffff !important;
+    color: var(--demo-text) !important;
   }
   .btn-primary:hover {
-    background: #6A7FDB !important;
-    border-color: #6A7FDB !important;
-    box-shadow: 0 6px 28px rgba(106, 127, 219, 0.5) !important;
+    background: var(--demo-accent) !important;
+    border-color: var(--demo-accent) !important;
+    box-shadow: 0 6px 28px var(--demo-glow) !important;
     transform: scale(1.02);
   }
   .btn-primary:active {
@@ -197,17 +197,17 @@
   /* Solid Primary Ghost Action Pill */
   .btn-secondary {
     @apply font-ui text-[14px] font-medium rounded-full px-[22px] py-[11px] inline-flex items-center justify-center gap-2;
-    background: #0B0F2B !important;
-    border: 1px solid #2C3E91 !important;
+    background: var(--demo-surface) !important;
+    border: 1px solid var(--demo-border) !important;
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    color: #8899bb !important;
+    color: var(--demo-text-muted) !important;
   }
   .btn-secondary:hover {
-    background: #121A4A !important;
-    color: #ffffff !important;
-    border-color: #6A7FDB !important;
+    background: var(--demo-secondary) !important;
+    color: var(--demo-text) !important;
+    border-color: var(--demo-accent) !important;
     transform: scale(1.02);
   }
   .btn-secondary:active {
@@ -220,15 +220,15 @@
   /* Solid Dark Utility Button */
   .btn-dark-utility {
     @apply font-ui text-[14px] font-medium rounded-[8px] px-[15px] py-[8px] inline-flex items-center justify-center;
-    background: #0B0F2B !important;
-    border: 1px solid #2C3E91 !important;
+    background: var(--demo-surface) !important;
+    border: 1px solid var(--demo-border) !important;
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    color: #ffffff !important;
+    color: var(--demo-text) !important;
   }
   .btn-dark-utility:hover {
-    background: #121A4A !important;
+    background: var(--demo-secondary) !important;
     transform: scale(1.02);
   }
   .btn-dark-utility:active {
@@ -241,15 +241,15 @@
   /* Solid Pearl Card Button */
   .btn-pearl {
     @apply font-ui text-[14px] font-medium rounded-[11px] px-[14px] py-[8px] inline-flex items-center justify-center;
-    background: #121A4A !important;
-    border: 1px solid #2C3E91 !important;
-    color: #ffffff !important;
+    background: var(--demo-secondary) !important;
+    border: 1px solid var(--demo-border) !important;
+    color: var(--demo-text) !important;
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
   .btn-pearl:hover {
-    background: #2C3E91 !important;
+    background: var(--demo-primary) !important;
     transform: scale(1.02);
   }
   .btn-pearl:active {
@@ -262,15 +262,15 @@
   /* Solid Icon Button */
   .btn-icon-circular {
     @apply w-[44px] h-[44px] rounded-full flex items-center justify-center;
-    background: #0B0F2B !important;
-    border: 1px solid #2C3E91 !important;
-    color: #ffffff !important;
+    background: var(--demo-surface) !important;
+    border: 1px solid var(--demo-border) !important;
+    color: var(--demo-text) !important;
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
   .btn-icon-circular:hover {
-    background: #2C3E91 !important;
+    background: var(--demo-primary) !important;
     transform: scale(1.05);
   }
   .btn-icon-circular:active {
@@ -284,8 +284,8 @@
 
   /* Primary Navy Cards Solid Finish */
   .bg-cosmos, .bg-cosmos\/40, .bg-cosmos\/70 {
-    background: #0B0F2B !important;
-    border: 1px solid #2C3E91 !important;
+    background: var(--demo-surface) !important;
+    border: 1px solid var(--demo-border) !important;
     position: relative;
     overflow: hidden;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
@@ -298,10 +298,10 @@
 
   /* Solid Active Highlight Badges */
   .bg-eclipse {
-    background: #f4a623 !important;
-    border: 1px solid #f4a623 !important;
-    color: #050714 !important;
-    box-shadow: 0 4px 15px rgba(244, 166, 35, 0.45) !important;
+    background: var(--demo-primary) !important;
+    border: 1px solid var(--demo-primary) !important;
+    color: var(--demo-secondary) !important;
+    box-shadow: 0 4px 15px var(--demo-glow) !important;
     position: relative;
     overflow: hidden;
   }
@@ -311,23 +311,23 @@
 
   /* 3. SOLID FORM INPUTS */
   input[type="text"], input[type="email"], select, textarea {
-    background: #050714 !important;
-    border: 1px solid #2C3E91 !important;
+    background: var(--demo-background) !important;
+    border: 1px solid var(--demo-border) !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    color: #ffffff !important;
+    color: var(--demo-text) !important;
   }
 
   input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
-    border-color: #6A7FDB !important;
-    box-shadow: 0 0 15px rgba(106, 127, 219, 0.25) !important;
+    border-color: var(--demo-accent) !important;
+    box-shadow: 0 0 15px var(--demo-glow) !important;
     outline: none !important;
   }
 
   /* Dropdown Option resets */
   select option {
-    background-color: #060d1a !important;
-    color: #ffffff !important;
+    background-color: var(--demo-surface) !important;
+    color: var(--demo-text) !important;
   }
 
   /* Full-bleed photography tiles */
