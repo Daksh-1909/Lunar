@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Send, MapPin, Mail, Phone, Heart, Sparkles } from "lucide-react";
+import { Send, MapPin, Mail, Phone, Heart, Sparkles, ChevronDown } from "lucide-react";
 import { SpaceBackground } from "../components/ui/SpaceBackground";
 
 interface ConfettiParticle {
@@ -25,6 +25,31 @@ export const ContactPage: React.FC = () => {
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationRef = useRef<number | null>(null);
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  const dropdownOptions = [
+    { value: "general", label: "General Inquiry" },
+    { value: "submit", label: "Submit Astrophotography" },
+    { value: "collaboration", label: "Observatory Collaboration" },
+    { value: "licensing", label: "Fine Art Licensing" }
+  ];
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleSubjectSelect = (value: string) => {
+    setFormData((prev) => ({ ...prev, subject: value }));
+    setIsDropdownOpen(false);
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -250,22 +275,43 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* Subject Dropdown */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="subject" className="font-mono text-[10px] uppercase tracking-wider text-silver/80">
+              <div className="flex flex-col gap-2 relative" ref={dropdownRef}>
+                <label className="font-mono text-[10px] uppercase tracking-wider text-silver/80 select-none">
                   TRANSMISSION SUBJECT
                 </label>
-                <select
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  className="w-full h-11 bg-void text-white font-ui border border-stardust/60 rounded-full px-5 focus:outline-none focus:border-eclipse cursor-pointer text-[14px]"
+                
+                <button
+                  type="button"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className={`w-full h-11 bg-void text-white font-ui border border-stardust/60 rounded-full px-5 flex items-center justify-between focus:outline-none focus:border-eclipse focus:ring-1 focus:ring-eclipse/50 text-[14px] transition-all cursor-pointer select-none ${
+                    isDropdownOpen ? "border-eclipse ring-1 ring-eclipse/50" : ""
+                  }`}
                 >
-                  <option value="general">General Inquiry</option>
-                  <option value="submit">Submit Astrophotography</option>
-                  <option value="collaboration">Observatory Collaboration</option>
-                  <option value="licensing">Fine Art Licensing</option>
-                </select>
+                  <span className="text-white">{dropdownOptions.find(opt => opt.value === formData.subject)?.label || "Select Subject"}</span>
+                  <ChevronDown className={`w-4 h-4 text-silver transition-transform duration-300 ${isDropdownOpen ? "rotate-180 text-eclipse" : ""}`} />
+                </button>
+
+                {isDropdownOpen && (
+                  <div className="absolute top-[calc(100%+6px)] left-0 w-full bg-[#0B0F2B] border border-[#2C3E91] rounded-2xl py-2 shadow-2xl shadow-black/90 z-50 animate-in fade-in zoom-in-95 duration-200 backdrop-blur-md">
+                    {dropdownOptions.map((opt) => (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => handleSubjectSelect(opt.value)}
+                        className={`w-full text-left px-5 py-3 hover:bg-[#121A4A] text-[14px] transition-all font-ui cursor-pointer flex items-center justify-between ${
+                          opt.value === formData.subject
+                            ? "text-eclipse bg-[#2C3E91]/30 font-medium"
+                            : "text-silver hover:text-white"
+                        }`}
+                      >
+                        <span>{opt.label}</span>
+                        {opt.value === formData.subject && (
+                          <div className="w-1.5 h-1.5 rounded-full bg-eclipse animate-pulse" />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Message */}

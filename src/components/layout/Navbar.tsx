@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
     useMouseGravity({
       gravityRadius: 160,  // px — how far elements start feeling the pull
       maxForce:      10,   // px — max positional displacement
-      lerpSpeed:     0.10, // smoothness of the black hole following cursor
+      lerpSpeed:     0.30, // smoothness of the black hole following cursor
       maxScale:      1.05, // max scale of elements near the event horizon
     });
 
@@ -49,7 +49,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <header className="sub-nav-frosted">
+      <header className="sub-nav-frosted" style={{ background: "transparent", backdropFilter: "none", WebkitBackdropFilter: "none", border: "none", boxShadow: "none" }}>
 
         {/* ── Floating Island Pill ─────────────────────────────── */}
         <div
@@ -66,29 +66,29 @@ export const Navbar: React.FC = () => {
           />
 
           {/* ══ LOGO ════════════════════════════════════════════ */}
-          <GravityItem {...gravityProps}>
+          <GravityItem {...gravityProps} className="shrink-0">
             <Link
               to="/"
-              className="relative z-30 flex items-center gap-2.5 select-none group"
+              className="relative z-30 flex items-center gap-2.5 select-none group shrink-0"
             >
               <img
                 src="/logo.png"
                 alt="Lunar Logo"
-                className="w-6 h-6 object-contain transition-transform duration-500 group-hover:scale-110"
+                className="w-6 h-6 object-contain transition-transform duration-500 group-hover:scale-110 shrink-0"
               />
-              <span className="font-display text-2xl font-medium tracking-wide bg-gradient-to-r from-moonbeam to-eclipse bg-clip-text text-transparent">
+              <span className="font-display text-2xl font-medium tracking-wide bg-gradient-to-r from-moonbeam to-eclipse bg-clip-text text-transparent whitespace-nowrap shrink-0">
                 Lunar
               </span>
             </Link>
           </GravityItem>
 
           {/* ══ NAV LINKS ════════════════════════════════════════ */}
-          <nav className="relative z-30 hidden md:flex items-center gap-8">
+          <nav className="relative z-30 hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 shrink-0">
             {navLinks.map(link => (
-              <GravityItem key={link.name} {...gravityProps}>
+              <GravityItem key={link.name} {...gravityProps} className="shrink-0">
                 <Link
                   to={link.path}
-                  className={`relative font-ui text-[14px] font-medium tracking-wide transition-colors duration-200 py-1.5 ${
+                  className={`relative font-ui text-[14px] font-medium tracking-wide transition-colors duration-200 py-1.5 whitespace-nowrap ${
                     isActive(link.path)
                       ? "text-white"
                       : "text-silver hover:text-white"
@@ -104,14 +104,14 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* ══ RIGHT ACTIONS ════════════════════════════════════ */}
-          <div className="relative z-30 hidden md:flex items-center gap-5">
+          <div className="relative z-30 hidden md:flex items-center gap-3 lg:gap-5 shrink-0">
 
             {/* Icon cluster */}
-            <GravityItem {...gravityProps}>
-              <div className="flex items-center gap-4 text-silver">
+            <GravityItem {...gravityProps} className="shrink-0">
+              <div className="flex items-center gap-4 text-silver shrink-0">
                 <Link
                   to="/gallery"
-                  className="relative flex items-center hover:text-white transition-colors"
+                  className="relative flex items-center hover:text-white transition-colors shrink-0"
                 >
                   <Heart className="w-[18px] h-[18px]" />
                   {likedPhotoIds.size > 0 && (
@@ -126,11 +126,11 @@ export const Navbar: React.FC = () => {
 
             {/* Explore CTA */}
             {!isActive("/gallery") && (
-              <GravityItem {...gravityProps}>
+              <GravityItem {...gravityProps} className="shrink-0">
                 <OrbitButton
                   color="blue"
                   onClick={() => navigate("/gallery")}
-                  className="py-2 px-5 min-w-[110px] text-[13px]"
+                  className="py-2 px-4 lg:px-5 min-w-[100px] lg:min-w-[110px] text-[13px] whitespace-nowrap shrink-0"
                 >
                   <Compass className="w-4 h-4" />
                   Explore

@@ -8,18 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // ── User Palette (deep-navy) ──
-        "shade-5": "#050714",      // darkest void
-        primary: "#0B0F2B",        // card/main surface
-        secondary: "#121A4A",      // secondary surfaces
-        accent: "#2C3E91",         // borders, dividers, interactive
-        background: "#6A7FDB",     // highlight / periwinkle glow
+        // ── User Palette ──
+        "shade-5": "#b0c4de",
+        primary: "#0a0a0a",
+        secondary: "#1a1a1a",
+        accent: "#2d2d2d",
+        background: "#4682b4",
 
         // ── Semantic aliases (mapped to new palette) ──
-        void: "#050714",           // deepest background  → shade-5
-        cosmos: "#0B0F2B",         // card backgrounds    → primary
-        nebula: "#121A4A",         // secondary surfaces  → secondary
-        stardust: "#2C3E91",       // borders, dividers   → accent
+        void: "#b0c4de",           // deepest background  → shade-5
+        cosmos: "#0a0a0a",         // card backgrounds    → primary
+        nebula: "#1a1a1a",         // secondary surfaces  → secondary
+        stardust: "#2d2d2d",       // borders, dividers   → accent
 
         // ── Text & accent tokens (kept) ──
         moonbeam: "#c8d8f0",
