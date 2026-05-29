@@ -8,23 +8,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // ── User Palette ──
-        "shade-5": "#05081A",
-        primary: "#090E23",
-        secondary: "#2B4B7A",
-        accent: "#5BB8FF",
-        background: "#A5DBFF",
+        // ── User Palette (Mapped to CSS variables) ──
+        "shade-5": "var(--demo-surface)",
+        primary: "var(--demo-primary)",
+        secondary: "var(--demo-secondary)",
+        accent: "var(--demo-accent)",
+        background: "var(--demo-background)",
 
         // ── Semantic aliases (mapped to new palette) ──
-        void: "#05081A",           // deepest background  → shade-5
-        cosmos: "#090E23",         // card backgrounds    → primary
-        nebula: "#2B4B7A",         // secondary surfaces  → secondary
-        stardust: "#5BB8FF",       // borders, dividers   → accent
+        void: "var(--demo-background)",        // deepest background  → background
+        cosmos: "var(--demo-surface)",          // card backgrounds    → surface
+        nebula: "var(--demo-secondary)",        // secondary surfaces  → secondary
+        stardust: "var(--demo-border)",         // borders, dividers   → border
+        eclipse: "var(--demo-primary)",         // highlight color     → primary
 
-        // ── Text & accent tokens (kept) ──
-        moonbeam: "#c8d8f0",
-        silver: "#8899bb",
-        eclipse: "#f4a623",
+        // ── Text & accent tokens (kept & integrated) ──
+        moonbeam: "var(--demo-text)",
+        silver: "var(--demo-text-muted)",
         aurora: "#00e5a0",
         supernova: "#ff6b6b",
         twilight: "#7c3aed",

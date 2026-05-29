@@ -20,8 +20,13 @@
 @tailwind utilities;
 
 @layer base {
+  ::selection {
+    background-color: var(--demo-glow);
+    color: var(--demo-text);
+  }
+
   body {
-    @apply bg-void text-moonbeam font-ui antialiased selection:bg-accent/30 selection:text-white overflow-x-hidden;
+    @apply bg-void text-moonbeam font-ui antialiased overflow-x-hidden;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
